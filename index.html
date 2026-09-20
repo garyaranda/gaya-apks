@@ -178,6 +178,12 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <script>
 var appList = [
 {
+id: 15, name: "My Boy!", cat: "emuladores", genre: "Emulador GBA", ver: "2.0.6",
+dev: "Fast Emulator", size: "4.23 Mb", img: "https://play-lh.googleusercontent.com/GmMy8HhuZPLeCep5Op5SOo7hn2S_n9520IZU0G6YStm4qIzzn7AlX1BD9S2jyQ8AOlOWX5hEuHHAM-VGaa8CrTo",
+lnk: "https://www.mediafire.com/file/oo31srjt5gtndyx/My_Boy_v2.0.6_.apk/file",
+desc: "My Boy! es uno de los mejores y más populares emuladores de Game Boy Advance (GBA) para dispositivos Android. Destaca por ser extremadamente rápido, lo que permite ejecutar juegos sin problemas incluso en teléfonos de gama baja, y no requiere un archivo BIOS para funcionar."
+},
+{
 id: 14, name: "Exploration", cat: "juegos", genre: "Sandbox / Simulación", ver: "1.3.3",
 dev: "Gaya APKs", size: "2.29 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLF49zbjDuhCObblKKoMC2ZBPwSR232w_tD82iEZNsI5RfRATyd6--hspu&s=10",
 lnk: "https://www.mediafire.com/download/3rgssax1apxzwoz/Exploration_v1.3.3.apk",
@@ -212,6 +218,7 @@ desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles con control
 { id: 9, name: "Minecraft PE", cat: "juegos", genre: "Sandbox", ver: "1.1.5", dev: "Mojang", size: "55 Mb", img: "https://i.pinimg.com/564x/82/b2/1f/82b21fe6d9166c673eed585a5fc38ef5.jpg", lnk: "https://www.mediafire.com/file/9tvs8me61mg1ro1/minecraft-pe-1_1_5.apk/file", desc: "Actualización clásica para Pocket Edition." },
 { id: 10, name: "Fortnite", cat: "juegos", genre: "Shooter", ver: "42.10.0", dev: "Epic Games", size: "150 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzmvr1RPh9LRooyA672zU4mBmYj1zJyJlh80cWPFfKzbsSVoWQlUE77A&s=10", lnk: "https://www.mediafire.com/file/b14t4m81cnpzdoy/fortnite_42.10.0_GarysAPK.apk/file", desc: "Videojuego de acción y supervivencia." }
 ];
+
 function showPage(p, pushHistory = true) {
 document.querySelectorAll('.page').forEach(function(el){ el.classList.remove('active'); });
 document.getElementById('page-' + p).classList.add('active');
@@ -276,11 +283,10 @@ arr.forEach(function(item){
 var card = document.createElement('div');
 card.className = 'card';
 card.onclick = function() { openApp(item.id); };
-card.innerHTML = '<img src="' + item.img + '" onerror="this.src=\'https://cdn-icons-png.flaticon.com/512/888/888879.png\'"><div class="name">' + item.name + '</div><div class="ver">' + item.ver + '</div>';
+card.innerHTML = '<img src="' + item.img + '" onerror="this.src=\'https://cdn-icons-png.flaticon.com/512/888/888879.png\'"><div class="name">' + item.name + '</div><div class="ver">v' + item.ver + '</div>';
 grid.appendChild(card);
 });
 }
-history.replaceState({page: 'home'}, '', '#home');
 renderApps(appList);
 </script>
 </body>
