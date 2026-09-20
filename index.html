@@ -57,10 +57,11 @@ filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.7)); border-radius: 8px; overfl
 .detail-top-card img { width: 90px; height: 90px; border-radius: 14px; object-fit: cover; background: #120e26; flex-shrink: 0; }
 .detail-titles h3 { font-size: 1.1rem; color: #fff; margin-bottom: 2px; }
 .detail-titles .ver-sub { font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px; }
-.dl-btn { display: block; text-align: center; padding: 12px; border-radius: 10px; font-weight: bold; text-decoration: none; color: white; font-size: 0.9rem; }
+.dl-btn { display: block; text-align: center; padding: 12px; border-radius: 10px; font-weight: bold; text-decoration: none; color: white; font-size: 0.9rem; margin-bottom: 8px; }
 .btn-green { background: linear-gradient(135deg, #059669, #10b981); }
 .btn-blue { background: linear-gradient(135deg, #2563eb, #0284c7); }
-.btn-donate-card { background: linear-gradient(135deg, #0070ba, #003087); margin-top: 10px; }
+.btn-yt-tut { background: #ff0000; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.btn-donate-card { background: linear-gradient(135deg, #0070ba, #003087); margin-top: 4px; }
 .info-table-card { background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 16px; }
 .info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #1a1236; font-size: 0.82rem; }
 .info-row:last-child { border-bottom: none; }
@@ -144,10 +145,10 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <div class="detail-container">
 <div class="detail-top-card">
 <img id="dImg" src="" alt="">
-<div class="detail-titles">
+<div class="detail-titles" style="width: 100%;">
 <h3 id="dName">Nombre</h3>
 <div class="ver-sub" id="dVer">1.0</div>
-<a href="#" id="dLnk" target="_blank" class="dl-btn btn-green">DESCARGAR</a>
+<div id="downloadButtonsArea"></div>
 <a href="https://paypal.me/gayasapk" target="_blank" class="dl-btn btn-donate-card">💳 Donar Mony (PayPal)</a>
 </div>
 </div>
@@ -178,40 +179,48 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <script>
 var appList = [
 {
+id: 17, name: "Emulador PS3", cat: "emuladores", genre: "Emulador Consola", ver: "1.0",
+dev: "BTECH", size: "No especificado", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJzjTmil8lqgzplR_mD2a0eIb26JE8QyVsOO0LuVfC-diZqoluLbvQhXT8&s=10",
+lnk: "https://www.mediafire.com/file/j5oczy2nbvdsfc2/Olympus3BTECH.zip/file",
+lnk2: "https://www.mediafire.com/file/p538tbbrmsj66qh/P53BTECH.zip/file",
+tut: "https://youtu.be/AVOPIcZYODw?si=hXXfcQR1DG5Z6RPf",
+desc: "Emulador de PS3 solicitado por un seguidor. Cuenta con sus archivos necesarios divididos en dos opciones de descarga para que puedas disfrutar de la experiencia en tu dispositivo."
+},
+{
 id: 16, name: "PPSSPP Gold", cat: "emuladores", genre: "Emulador PSP", ver: "1.17.1",
 dev: "PPSSPP Org", size: "19.39 Mb", img: "https://play-lh.googleusercontent.com/55DU6Ue1AKtzDsQWvsasyxXDASCE3vA7FebJm_8JW6O8pYi7ScPXGtqsvU0CRh7Tfa4sQPUMYdFKGAwChVR-PrM",
 lnk: "https://www.mediafire.com/file/tyef02gqdelb87s/PPSSPP_Goldv1.17.1.zip/file",
-desc: "PPSSPP Gold es la versión de pago del icónico emulador de PSP de código abierto, diseñada principalmente para que los usuarios puedan apoyar económicamente el desarrollo continuo del proyecto. A nivel de rendimiento bruto e ingeniería interna, es idéntica a la versión gratuita estándar, pero incluye un icónico icono dorado y la satisfacción de contribuir con sus desarrolladores."
+desc: "PPSSPP Gold es la versión de pago del icónico emulador de PSP de código abierto..."
 },
 {
 id: 15, name: "My Boy!", cat: "emuladores", genre: "Emulador GBA", ver: "2.0.6",
 dev: "Fast Emulator", size: "4.23 Mb", img: "https://play-lh.googleusercontent.com/GmMy8HhuZPLeCep5Op5SOo7hn2S_n9520IZU0G6YStm4qIzzn7AlX1BD9S2jyQ8AOlOWX5hEuHHAM-VGaa8CrTo",
 lnk: "https://www.mediafire.com/file/oo31srjt5gtndyx/My_Boy_v2.0.6_.apk/file",
-desc: "My Boy! es uno de los mejores y más populares emuladores de Game Boy Advance (GBA) para dispositivos Android. Destaca por ser extremadamente rápido, lo que permite ejecutar juegos sin problemas incluso en teléfonos de gama baja, y no requiere un archivo BIOS para funcionar."
+desc: "My Boy! es uno de los mejores y más populares emuladores de Game Boy Advance (GBA)..."
 },
 {
 id: 14, name: "Exploration", cat: "juegos", genre: "Sandbox / Simulación", ver: "1.3.3",
 dev: "Gaya APKs", size: "2.29 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLF49zbjDuhCObblKKoMC2ZBPwSR232w_tD82iEZNsI5RfRATyd6--hspu&s=10",
 lnk: "https://www.mediafire.com/download/3rgssax1apxzwoz/Exploration_v1.3.3.apk",
-desc: "Exploration Pro es un divertido juego ambientado en Minecraft en el que podrás disfrutar de horas y horas de diversión explorando el mundo de los cubos en busca de elementos sorprendentes y nuevos artículos para fabricar cosas.\n\nEste juego funciona exactamente igual que Minecraft, con la salvedad de que no podrás recoger materiales por el camino, ni excavar, quitar objetos ni crear otros en la mesa de trabajo. Por el contrario, tendrás la posibilidad de levantar todo tipo de estructuras gigantescas, ya que contarás con decenas de elementos diferentes de forma ilimitada."
+desc: "Exploration Pro es un divertido juego ambientado en Minecraft..."
 },
 {
 id: 11, name: "Five Nights at Freddy's", cat: "juegos", genre: "Terror / Supervivencia", ver: "2.0.5",
 dev: "Scott Cawthon", size: "110.29 Mb", img: "https://www4.minijuegosgratis.com/v3/games/thumbnails/209606_1.jpg",
 lnk: "https://download2389.mediafire.com/6dc8pzdthpegd9xBDf2YfLshE1vvo0BsJahRf7J3MYgj4Runhmv0fpZHZUAKWjTpTtfARL48XWG4L5h2YtwsAF_DKc1-z8619Vx4qtyzA2-DXv7la4c5wHQ73nKlRsShtZH9rpcREC5aTJK6xljELGoVn00fuSogj2LECsGKI6IrNA/o13jnhxq37ia0d0/five+nights+at+freddy+v2.0.5+-+espacioapk.com.apk",
-desc: "Five Nights at Freddy's (También conocido como FNAF) es un videojuego de terror y supervivencia point-and-click de 2014 desarrollado y publicado por Scott Cawthon. El jugador controla a Mike Schmidt, guardia de seguridad nocturno de una pizzería."
+desc: "Five Nights at Freddy's (También conocido como FNAF) es un videojuego de terror..."
 },
 {
 id: 12, name: "RFS Real Flight Simulator", cat: "juegos", genre: "Simulación / Vuelo", ver: "3.2.9 mod",
 dev: "RORTOS", size: "472.08 Mb", img: "https://play-lh.googleusercontent.com/cjMQXsrPSPPpUO1X37rr6_vNWRTkMBWFoqlxqchrguLB019BVD6-COFFMgP9Y2EK4VzsdyHrUwbjFq_MXTA9DA",
 lnk: "https://files.5modapk.com/ROOT/All%20Documents%20File/Folder%2016/2%20RFS%20Real%20Flight%20Simulator/RFS-v3.2.9-MOD-GMA-(Getmodsapk.com).apk",
-desc: "Aprende a despegar, aterrizar y realizar vuelos completos. Pilota aviones emblemáticos con cabinas de vuelo en directo en 3D, visita 30 aeropuertos HD y despega..."
+desc: "Aprende a despegar, aterrizar y realizar vuelos completos..."
 },
 {
 id: 13, name: "Warplanes WW2 Dogfight", cat: "juegos", genre: "Acción / Combate Aéreo", ver: "2.5.2 mod",
 dev: "Home Net Games", size: "161 Mb", img: "https://m.media-amazon.com/images/I/91UNy1zml9L.png",
 lnk: "https://s1.5playdisk.com/f5648ad84ea5427234748425b5cd6043:2026091721/files/warplanes-ww2-dogfight-2.5.2-mod-t-5play.apk",
-desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles con controles intuitivos y una mecánica de vuelo fácil de usar. Con más de 30 aviones."
+desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles..."
 },
 { id: 1, name: "TBOI", cat: "juegos", genre: "Acción / Roguelike", ver: "1.4", dev: "Edmund McMillen", size: "120 Mb", img: "https://store-images.s-microsoft.com/image/apps.58856.69039762475408619.1f9f3938-799b-4ad8-a607-676e85baba27.95ed1dc8-4ddf-43fb-8a87-f54c81f96879", lnk: "https://dl.apkvision.org/the-binding-of-isaac-repentance/The-Binding-of-Isaac-Rebirth-v1.4-full-apkvision.apk", desc: "The Binding of Isaac es un videojuego roguelike de acción y aventura." },
 { id: 2, name: "Ultimate Bowmasters", cat: "juegos", genre: "Acción / Disparos", ver: "1.1.1 Mod", dev: "Gaya APKs", size: "95 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeauDPNpG7BkfOfTuh14JM1uF78SnwNtxofTRXakNZecZjyBsTB12swKQ&s=10", lnk: "https://www.mediafire.com/file/hjx7ns866rv7xvk/ultimate%20bowmasters%20mod%20v1.1.1%20-%20espacioapk.com.apk/file", desc: "Ultimate Bowmasters Mod APK es un juego de acción de apuntar y disparar." },
@@ -225,6 +234,44 @@ desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles con control
 { id: 10, name: "Fortnite", cat: "juegos", genre: "Shooter", ver: "42.10.0", dev: "Epic Games", size: "150 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzmvr1RPh9LRooyA672zU4mBmYj1zJyJlh80cWPFfKzbsSVoWQlUE77A&s=10", lnk: "https://www.mediafire.com/file/b14t4m81cnpzdoy/fortnite_42.10.0_GarysAPK.apk/file", desc: "Videojuego de acción y supervivencia." }
 ];
 
+function renderGrid(list) {
+var grid = document.getElementById('appsGrid');
+grid.innerHTML = '';
+list.forEach(function(app) {
+var card = document.createElement('div');
+card.className = 'card';
+card.onclick = function() { openApp(app.id); };
+card.innerHTML = '<img src="' + app.img + '" alt="' + app.name + '">' +
+'<div class="name">' + app.name + '</div>' +
+'<div class="ver">v' + app.ver + '</div>';
+grid.appendChild(card);
+});
+}
+
+function filterCat(cat) {
+document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
+event.currentTarget.classList.add('active');
+if(cat === 'all') {
+document.getElementById('catTitle').innerText = "Catálogo Completo";
+renderGrid(appList);
+} else {
+var titles = { juegos: "Juegos", apps: "Aplicaciones", emuladores: "Emuladores", roms: "ROMs" };
+document.getElementById('catTitle').innerText = titles[cat] || "Categoría";
+var filtered = appList.filter(function(x){ return x.cat === cat; });
+renderGrid(filtered);
+}
+showPage('home', false);
+}
+
+function doSearch() {
+var query = document.getElementById('searchInput').value.toLowerCase();
+var filtered = appList.filter(function(x){
+return x.name.toLowerCase().includes(query) || x.genre.toLowerCase().includes(query);
+});
+document.getElementById('catTitle').innerText = query ? "Resultados de búsqueda" : "Catálogo Completo";
+renderGrid(filtered);
+}
+
 function showPage(p, pushHistory = true) {
 document.querySelectorAll('.page').forEach(function(el){ el.classList.remove('active'); });
 document.getElementById('page-' + p).classList.add('active');
@@ -237,9 +284,11 @@ history.pushState({page: 'home'}, '', '#home');
 }
 }
 }
+
 function goHome() {
 showPage('home');
 }
+
 window.addEventListener('popstate', function(event) {
 if (event.state && event.state.page === 'detail') {
 document.querySelectorAll('.page').forEach(function(el){ el.classList.remove('active'); });
@@ -249,6 +298,7 @@ document.querySelectorAll('.page').forEach(function(el){ el.classList.remove('ac
 document.getElementById('page-home').classList.add('active');
 }
 });
+
 function openApp(id) {
 var found = appList.find(function(x){ return x.id === id; });
 if(!found) return;
@@ -259,41 +309,47 @@ document.getElementById('dDev').innerText = found.dev || 'Gaya APKs';
 document.getElementById('dVerTable').innerText = found.ver;
 document.getElementById('dSize').innerText = found.size || 'No especificado';
 document.getElementById('dDesc').innerText = found.desc;
-document.getElementById('dLnk').href = found.lnk;
-document.getElementById('dGenre').innerText = found.genre || 'Aplicación';
-showPage('detail', true);
-}
-function filterCat(c) {
-showPage('home', false);
-if(c === 'all') {
-document.getElementById('catTitle').innerText = 'Catálogo Completo';
-renderApps(appList);
+document.getElementById('dGenre').innerText = found.genre;
+
+var btnArea = document.getElementById('downloadButtonsArea');
+btnArea.innerHTML = '';
+
+if (found.lnk2) {
+var btn1 = document.createElement('a');
+btn1.href = found.lnk;
+btn1.target = '_blank';
+btn1.className = 'dl-btn btn-green';
+btn1.innerText = '📥 Opción de Descarga 1';
+btnArea.appendChild(btn1);
+
+var btn2 = document.createElement('a');
+btn2.href = found.lnk2;
+btn2.target = '_blank';
+btn2.className = 'dl-btn btn-blue';
+btn2.innerText = '📥 Opción de Descarga 2';
+btnArea.appendChild(btn2);
 } else {
-var titles = { 'juegos': 'Juegos Android', 'apps': 'Aplicaciones Android', 'emuladores': 'Emuladores', 'roms': 'ROMs' };
-document.getElementById('catTitle').innerText = titles[c] || 'Catálogo';
-renderApps(appList.filter(function(x){ return x.cat === c; }));
+var btnSingle = document.createElement('a');
+btnSingle.href = found.lnk;
+btnSingle.target = '_blank';
+btnSingle.className = 'dl-btn btn-green';
+btnSingle.innerText = 'DESCARGAR';
+btnArea.appendChild(btnSingle);
 }
+
+if (found.tut) {
+var btnTut = document.createElement('a');
+btnTut.href = found.tut;
+btnTut.target = '_blank';
+btnTut.className = 'dl-btn btn-yt-tut';
+btnTut.innerHTML = '▶ Tutorial de descarga';
+btnArea.appendChild(btnTut);
 }
-function doSearch() {
-var q = document.getElementById('searchInput').value.toLowerCase();
-renderApps(appList.filter(function(x){ return x.name.toLowerCase().indexOf(q) !== -1; }));
+
+showPage('detail');
 }
-function renderApps(arr) {
-var grid = document.getElementById('appsGrid');
-grid.innerHTML = '';
-if(!arr.length) {
-grid.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:30px; color:#64748b;">No se encontraron resultados</p>';
-return;
-}
-arr.forEach(function(item){
-var card = document.createElement('div');
-card.className = 'card';
-card.onclick = function() { openApp(item.id); };
-card.innerHTML = '<img src="' + item.img + '" onerror="this.src=\'https://cdn-icons-png.flaticon.com/512/888/888879.png\'"><div class="name">' + item.name + '</div><div class="ver">v' + item.ver + '</div>';
-grid.appendChild(card);
-});
-}
-renderApps(appList);
+
+renderGrid(appList);
 </script>
 </body>
 </html>
