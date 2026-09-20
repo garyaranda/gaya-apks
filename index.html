@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaya APKs - Android App Market</title>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/v8q7YR6w/IMG-20260913-001019.png">
+<link rel="apple-touch-icon" href="https://i.postimg.cc/v8q7YR6w/IMG-20260913-001019.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0c081e">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+body { background-color: #05050f; color: #ffffff; padding-bottom: 75px; }
+header {
+display: flex; justify-content: space-between; align-items: center;
+padding: 12px 16px; background: #0c081e; border-bottom: 1px solid #221747;
+position: sticky; top: 0; z-index: 10;
+}
+.logo-container { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.logo-img {
+width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.7)); border-radius: 8px; overflow: hidden;
+}
+.logo-img img { width: 100%; height: 100%; object-fit: cover; }
+.logo-text-group { display: flex; flex-direction: column; }
+.logo-title { font-size: 1.15rem; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; }
+.logo-title span { color: #a855f7; }
+.logo-sub { font-size: 0.65rem; color: #94a3b8; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; }
+.hero { text-align: center; padding: 24px 16px; background: radial-gradient(circle at center, #170d36 0%, #05050f 70%); border-bottom: 1px solid #221747; }
+.hero h2 { font-size: 1.3rem; margin-bottom: 6px; font-weight: 700; color: #f8fafc; }
+.hero p { font-size: 0.85rem; color: #94a3b8; margin-bottom: 16px; }
+.search-box { display: flex; max-width: 420px; margin: 0 auto; background: #0c081e; border: 1px solid #3b287a; border-radius: 12px; padding: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+.search-box input { flex: 1; padding: 10px 14px; border: none; background: transparent; color: #fff; outline: none; font-size: 0.9rem; }
+.search-box input::placeholder { color: #64748b; }
+.socials { display: flex; justify-content: center; gap: 8px; margin-top: 18px; flex-wrap: wrap; align-items: center; }
+.s-btn { padding: 7px 12px; border-radius: 8px; color: white; text-decoration: none; font-size: 0.8rem; font-weight: 700; }
+.s-fb { background: #1877f2; }
+.s-tk { background: #111; border: 1px solid #333; }
+.s-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.s-yt { background: #ff0000; }
+.s-wa { background: #25d366; }
+.s-tg { background: #0088cc; }
+.s-paypal { background: #0070ba; display: flex; align-items: center; gap: 4px; }
+.content-area { padding: 20px 16px; }
+.sec-title { font-size: 1.1rem; margin-bottom: 14px; font-weight: bold; color: #c084fc; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
+.card { background: #0c081e; border: 1px solid #221747; border-radius: 14px; padding: 14px; text-align: center; cursor: pointer; }
+.card img { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; margin-bottom: 8px; background: #120e26; }
+.card .name { font-size: 0.85rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #f1f5f9; }
+.card .ver { font-size: 0.75rem; color: #c084fc; margin-top: 4px; font-weight: 600; }
+.page { display: none; }
+.page.active { display: block; }
+.btn-back { background: #120e26; color: #c084fc; border: 1px solid #3b287a; padding: 8px 14px; border-radius: 8px; cursor: pointer; margin-bottom: 16px; font-weight: bold; }
+.badge-genre { display: inline-block; background: #10b981; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 3px 10px; border-radius: 6px; margin-bottom: 8px; text-transform: uppercase; }
+.detail-container { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
+.detail-top-card { background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 16px; display: flex; gap: 14px; align-items: center; }
+.detail-top-card img { width: 90px; height: 90px; border-radius: 14px; object-fit: cover; background: #120e26; flex-shrink: 0; }
+.detail-titles h3 { font-size: 1.1rem; color: #fff; margin-bottom: 2px; }
+.detail-titles .ver-sub { font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px; }
+.dl-btn { display: block; text-align: center; padding: 12px; border-radius: 10px; font-weight: bold; text-decoration: none; color: white; font-size: 0.9rem; }
+.btn-green { background: linear-gradient(135deg, #059669, #10b981); }
+.btn-blue { background: linear-gradient(135deg, #2563eb, #0284c7); }
+.btn-donate-card { background: linear-gradient(135deg, #0070ba, #003087); margin-top: 10px; }
+.info-table-card { background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 16px; }
+.info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #1a1236; font-size: 0.82rem; }
+.info-row:last-child { border-bottom: none; }
+.info-label { color: #94a3b8; font-weight: 600; }
+.info-value { color: #fff; font-weight: 500; text-align: right; }
+.rating-box { text-align: center; background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 14px; margin-bottom: 16px; }
+.stars { color: #f59e0b; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 2px; }
+.rating-score { font-size: 0.9rem; font-weight: bold; color: #10b981; }
+.desc-box { background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 16px; margin-bottom: 16px; }
+.desc-box h4 { font-size: 0.9rem; color: #c084fc; margin-bottom: 8px; }
+.desc-box p { font-size: 0.82rem; color: #94a3b8; line-height: 1.5; }
+.nav-bar { position: fixed; bottom: 0; left: 0; right: 0; height: 60px; background: #0c081e; border-top: 1px solid #221747; display: flex; justify-content: space-around; align-items: center; z-index: 10; }
+.nav-btn { background: none; border: none; color: #64748b; font-size: 0.65rem; font-weight: bold; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.nav-btn.active { color: #c084fc; }
+
+.home-donate-box {
+background: linear-gradient(135deg, #0c081e, #170d36);
+border: 1px solid #3b287a;
+border-radius: 16px;
+padding: 20px;
+margin-bottom: 20px;
+text-align: center;
+box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.home-donate-box h3 { color: #fff; font-size: 1.1rem; margin-bottom: 6px; }
+.home-donate-box p { color: #94a3b8; font-size: 0.82rem; margin-bottom: 14px; line-height: 1.4; }
+.btn-paypal-main {
+display: inline-block;
+background: linear-gradient(135deg, #0070ba, #003087);
+color: #fff;
+font-weight: bold;
+padding: 10px 24px;
+border-radius: 25px;
+text-decoration: none;
+font-size: 0.85rem;
+box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo-container" onclick="goHome()">
+<div class="logo-img"><img src="https://i.postimg.cc/v8q7YR6w/IMG-20260913-001019.png" alt="Logo"></div>
+<div class="logo-text-group">
+<div class="logo-title">Gaya<span>APKs</span></div>
+<div class="logo-sub">Android App Market</div>
+</div>
+</div>
+</header>
+<main id="page-home" class="page active">
+<div class="hero">
+<h2>🔥 Apps, Juegos, Emuladores y ROMs</h2>
+<p>Enlaces directos, seguros y verificados.</p>
+<div class="search-box">
+<input type="text" id="searchInput" oninput="doSearch()" placeholder="Buscar APK, emulador o rom...">
+</div>
+<div class="socials">
+<a href="https://www.facebook.com/share/1cL4PqEmLu/" target="_blank" class="s-btn s-fb">Facebook</a>
+<a href="https://www.tiktok.com/@garysapk" target="_blank" class="s-btn s-tk">TikTok</a>
+<a href="https://www.instagram.com/garysapk" target="_blank" class="s-btn s-ig">Instagram</a>
+<a href="https://youtube.com/@garysapk" target="_blank" class="s-btn s-yt">YouTube</a>
+<a href="https://whatsapp.com/channel/0029Vb8wCkF7oQhWRD2Ssd2V" target="_blank" class="s-btn s-wa">WhatsApp</a>
+<a href="https://t.me/garysapk27" target="_blank" class="s-btn s-tg">Telegram</a>
+<a href="https://paypal.me/gayasapk" target="_blank" class="s-btn s-paypal">💳 PayPal</a>
+</div>
+</div>
+<div class="content-area">
+<div class="home-donate-box">
+<h3>☕ ¿Te gusta Gaya APKs?</h3>
+<p>Apóyame con una donación para mantener la plataforma activa y libre de anuncios molestos. ¡Se agradece un chingo! 😎</p>
+<a href="https://paypal.me/gayasapk" target="_blank" class="btn-paypal-main">Donar Mony 💸</a>
+</div>
+
+<div class="sec-title" id="catTitle">Catálogo Completo</div>
+<div class="grid" id="appsGrid"></div>
+</div>
+</main>
+<section id="page-detail" class="page content-area">
+<button class="btn-back" onclick="goHome()">← Volver al inicio</button>
+<div class="badge-genre" id="dGenre">Acción</div>
+<div class="detail-container">
+<div class="detail-top-card">
+<img id="dImg" src="" alt="">
+<div class="detail-titles">
+<h3 id="dName">Nombre</h3>
+<div class="ver-sub" id="dVer">1.0</div>
+<a href="#" id="dLnk" target="_blank" class="dl-btn btn-green">DESCARGAR</a>
+<a href="https://paypal.me/gayasapk" target="_blank" class="dl-btn btn-donate-card">💳 Donar Mony (PayPal)</a>
+</div>
+</div>
+<div class="info-table-card">
+<div class="info-row"><span class="info-label">Desarrollador</span><span class="info-value" id="dDev">Gaya APKs</span></div>
+<div class="info-row"><span class="info-label">Actualización</span><span class="info-value">17 Sept 2026</span></div>
+<div class="info-row"><span class="info-label">Versión</span><span class="info-value" id="dVerTable">1.0</span></div>
+<div class="info-row"><span class="info-label">Tamaño</span><span class="info-value" id="dSize">--</span></div>
+</div>
+<div class="rating-box">
+<div class="stars">★★★★★</div>
+<div class="rating-score">4.7 / 5</div>
+</div>
+<div class="desc-box">
+<h4>Acerca de esta APK</h4>
+<p id="dDesc">Descripción...</p>
+</div>
+<a href="https://t.me/garysapk27" target="_blank" class="dl-btn btn-blue">UNIRSE AL CANAL DE TELEGRAM</a>
+</div>
+</section>
+<nav class="nav-bar">
+<button class="nav-btn active" onclick="filterCat('all')"><span>🏠</span> Todo</button>
+<button class="nav-btn" onclick="filterCat('juegos')"><span>🎮</span> Juegos</button>
+<button class="nav-btn" onclick="filterCat('apps')"><span>📱</span> Apps</button>
+<button class="nav-btn" onclick="filterCat('emuladores')"><span>🕹️</span> Emuladores</button>
+<button class="nav-btn" onclick="filterCat('roms')"><span>💾</span> ROMs</button>
+</nav>
+<script>
+var appList = [
+{
+id: 14, name: "Exploration", cat: "juegos", genre: "Sandbox / Simulación", ver: "1.3.3",
+dev: "Gaya APKs", size: "2.29 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLF49zbjDuhCObblKKoMC2ZBPwSR232w_tD82iEZNsI5RfRATyd6--hspu&s=10",
+lnk: "https://www.mediafire.com/download/3rgssax1apxzwoz/Exploration_v1.3.3.apk",
+desc: "Exploration Pro es un divertido juego ambientado en Minecraft en el que podrás disfrutar de horas y horas de diversión explorando el mundo de los cubos en busca de elementos sorprendentes y nuevos artículos para fabricar cosas.\n\nEste juego funciona exactamente igual que Minecraft, con la salvedad de que no podrás recoger materiales por el camino, ni excavar, quitar objetos ni crear otros en la mesa de trabajo. Por el contrario, tendrás la posibilidad de levantar todo tipo de estructuras gigantescas, ya que contarás con decenas de elementos diferentes de forma ilimitada."
+},
+{
+id: 11, name: "Five Nights at Freddy's", cat: "juegos", genre: "Terror / Supervivencia", ver: "2.0.5",
+dev: "Scott Cawthon", size: "110.29 Mb", img: "https://www4.minijuegosgratis.com/v3/games/thumbnails/209606_1.jpg",
+lnk: "https://download2389.mediafire.com/6dc8pzdthpegd9xBDf2YfLshE1vvo0BsJahRf7J3MYgj4Runhmv0fpZHZUAKWjTpTtfARL48XWG4L5h2YtwsAF_DKc1-z8619Vx4qtyzA2-DXv7la4c5wHQ73nKlRsShtZH9rpcREC5aTJK6xljELGoVn00fuSogj2LECsGKI6IrNA/o13jnhxq37ia0d0/five+nights+at+freddy+v2.0.5+-+espacioapk.com.apk",
+desc: "Five Nights at Freddy's (También conocido como FNAF) es un videojuego de terror y supervivencia point-and-click de 2014 desarrollado y publicado por Scott Cawthon. El jugador controla a Mike Schmidt, guardia de seguridad nocturno de una pizzería."
+},
+{
+id: 12, name: "RFS Real Flight Simulator", cat: "juegos", genre: "Simulación / Vuelo", ver: "3.2.9 mod",
+dev: "RORTOS", size: "472.08 Mb", img: "https://play-lh.googleusercontent.com/cjMQXsrPSPPpUO1X37rr6_vNWRTkMBWFoqlxqchrguLB019BVD6-COFFMgP9Y2EK4VzsdyHrUwbjFq_MXTA9DA",
+lnk: "https://files.5modapk.com/ROOT/All%20Documents%20File/Folder%2016/2%20RFS%20Real%20Flight%20Simulator/RFS-v3.2.9-MOD-GMA-(Getmodsapk.com).apk",
+desc: "Aprende a despegar, aterrizar y realizar vuelos completos. Pilota aviones emblemáticos con cabinas de vuelo en directo en 3D, visita 30 aeropuertos HD y despega..."
+},
+{
+id: 13, name: "Warplanes WW2 Dogfight", cat: "juegos", genre: "Acción / Combate Aéreo", ver: "2.5.2 mod",
+dev: "Home Net Games", size: "161 Mb", img: "https://m.media-amazon.com/images/I/91UNy1zml9L.png",
+lnk: "https://s1.5playdisk.com/f5648ad84ea5427234748425b5cd6043:2026091721/files/warplanes-ww2-dogfight-2.5.2-mod-t-5play.apk",
+desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles con controles intuitivos y una mecánica de vuelo fácil de usar. Con más de 30 aviones."
+},
+{ id: 1, name: "TBOI", cat: "juegos", genre: "Acción / Roguelike", ver: "1.4", dev: "Edmund McMillen", size: "120 Mb", img: "https://store-images.s-microsoft.com/image/apps.58856.69039762475408619.1f9f3938-799b-4ad8-a607-676e85baba27.95ed1dc8-4ddf-43fb-8a87-f54c81f96879", lnk: "https://dl.apkvision.org/the-binding-of-isaac-repentance/The-Binding-of-Isaac-Rebirth-v1.4-full-apkvision.apk", desc: "The Binding of Isaac es un videojuego roguelike de acción y aventura." },
+{ id: 2, name: "Ultimate Bowmasters", cat: "juegos", genre: "Acción / Disparos", ver: "1.1.1 Mod", dev: "Gaya APKs", size: "95 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeauDPNpG7BkfOfTuh14JM1uF78SnwNtxofTRXakNZecZjyBsTB12swKQ&s=10", lnk: "https://www.mediafire.com/file/hjx7ns866rv7xvk/ultimate%20bowmasters%20mod%20v1.1.1%20-%20espacioapk.com.apk/file", desc: "Ultimate Bowmasters Mod APK es un juego de acción de apuntar y disparar." },
+{ id: 3, name: "Poppy Playtime", cat: "juegos", genre: "Terror / Puzzles", ver: "1.0.18", dev: "Mob Entertainment", size: "500 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrdKrNxD-mV2szhNyHmd-oVPBZ012EI0GtoEaHNMUGVen8O98uJlya4M&s=10", lnk: "https://www.mediafire.com/file/cc1338960hyor1h/poppy%20playtime%20v1.0.18%20-%20espacioapk.com.apk/file", desc: "Juego móvil de terror y rompecabezas en una fábrica de juguetes." },
+{ id: 4, name: "Free Fire Max", cat: "juegos", genre: "Battle Royale", ver: "2.130.1", dev: "Garena", size: "850 Mb", img: "https://play-lh.googleusercontent.com/SDYv1Th3VdjfM0MwObMIvH3L2I2owroB3leEtbMrFJZYRklHroxw_AspZZmno_8DBdiar3d03kHsyjBsnvcdlg", lnk: "https://www.mediafire.com/file/end8uy6igrna3rj/free-fire-max-2.130.1%20-%20espacioapk.com.apk/file", desc: "Versión mejorada del popular Battle Royale con gráficos de alta calidad." },
+{ id: 5, name: "Undertale", cat: "juegos", genre: "Rol / Aventura", ver: "2.0.0", dev: "Toby Fox", size: "140 Mb", img: "https://play-lh.googleusercontent.com/IMnPJ7do4K6XzXhUNkRStzrpQ7wzR6p6spFJ74VwPBzkDOFH7euW7kbk51WzLLXMAq1Uld9TVk8JBG_OFmHO", lnk: "https://www.mediafire.com/file/o20abvqko1vxvha/UNDERTALE_2.0.0.apk/file", desc: "Videojuego de rol en 2D creado por Toby Fox." },
+{ id: 6, name: "Minecraft", cat: "juegos", genre: "Sandbox", ver: "26.51", dev: "Mojang", size: "200 Mb", img: "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/logos/Homepage_Gameplay-Trailer_MC-OV-logo_300x300.png", lnk: "https://www.mediafire.com/file/clvtl9noe8awy9p/mc-26-51-sinmusic.paujity.com.apk/file", desc: "Videojuego de construcción de tipo mundo abierto." },
+{ id: 7, name: "Spotify", cat: "apps", genre: "Música y Audio", ver: "8.9.0", dev: "Spotify AB", size: "80 Mb", img: "https://cdn-icons-png.flaticon.com/512/2111/2111624.png", lnk: "https://www.mediafire.com/file/6gfdo6xqct6sqjd/spotify%20v9.1.12.226%20-%20espacioapk.com.apk/file", desc: "Aplicación oficial de música y podcasts." },
+{ id: 8, name: "Geometry Dash", cat: "juegos", genre: "Plataformas", ver: "2.2081", dev: "RobTop", size: "90 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk7nT5URce49XTMiccOVJHbm2xVWPqBwava6_Wf-cB8A&s=10", lnk: "https://www.mediafire.com/file/bsmc6yzjjha3ges/Geometry+Dash+v2.2081+-+GayaAPK.apk/file", desc: "Videojuego de plataformas y ritmo." },
+{ id: 9, name: "Minecraft PE", cat: "juegos", genre: "Sandbox", ver: "1.1.5", dev: "Mojang", size: "55 Mb", img: "https://i.pinimg.com/564x/82/b2/1f/82b21fe6d9166c673eed585a5fc38ef5.jpg", lnk: "https://www.mediafire.com/file/9tvs8me61mg1ro1/minecraft-pe-1_1_5.apk/file", desc: "Actualización clásica para Pocket Edition." },
+{ id: 10, name: "Fortnite", cat: "juegos", genre: "Shooter", ver: "42.10.0", dev: "Epic Games", size: "150 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzmvr1RPh9LRooyA672zU4mBmYj1zJyJlh80cWPFfKzbsSVoWQlUE77A&s=10", lnk: "https://www.mediafire.com/file/b14t4m81cnpzdoy/fortnite_42.10.0_GarysAPK.apk/file", desc: "Videojuego de acción y supervivencia." }
+];
+function showPage(p, pushHistory = true) {
+document.querySelectorAll('.page').forEach(function(el){ el.classList.remove('active'); });
+document.getElementById('page-' + p).classList.add('active');
+window.scrollTo(0, 0);
+if (pushHistory) {
+if (p === 'detail') {
+history.pushState({page: 'detail'}, '', '#detail');
+} else {
+history.pushState({page: 'home'}, '', '#home');
+}
+}
+}
+function goHome() {
+showPage('home');
+}
+window.addEventListener('popstate', function(event) {
+if (event.state && event.state.page === 'detail') {
+document.querySelectorAll('.page').forEach(function(el){ el.classList.remove('active'); });
+document.getElementById('page-detail').classList.add('active');
+} else {
+document.querySelectorAll('.page').forEach(function(el){ el.classList.remove('active'); });
+document.getElementById('page-home').classList.add('active');
+}
+});
+function openApp(id) {
+var found = appList.find(function(x){ return x.id === id; });
+if(!found) return;
+document.getElementById('dImg').src = found.img;
+document.getElementById('dName').innerText = found.name;
+document.getElementById('dVer').innerText = found.ver;
+document.getElementById('dDev').innerText = found.dev || 'Gaya APKs';
+document.getElementById('dVerTable').innerText = found.ver;
+document.getElementById('dSize').innerText = found.size || 'No especificado';
+document.getElementById('dDesc').innerText = found.desc;
+document.getElementById('dLnk').href = found.lnk;
+document.getElementById('dGenre').innerText = found.genre || 'Aplicación';
+showPage('detail', true);
+}
+function filterCat(c) {
+showPage('home', false);
+if(c === 'all') {
+document.getElementById('catTitle').innerText = 'Catálogo Completo';
+renderApps(appList);
+} else {
+var titles = { 'juegos': 'Juegos Android', 'apps': 'Aplicaciones Android', 'emuladores': 'Emuladores', 'roms': 'ROMs' };
+document.getElementById('catTitle').innerText = titles[c] || 'Catálogo';
+renderApps(appList.filter(function(x){ return x.cat === c; }));
+}
+}
+function doSearch() {
+var q = document.getElementById('searchInput').value.toLowerCase();
+renderApps(appList.filter(function(x){ return x.name.toLowerCase().indexOf(q) !== -1; }));
+}
+function renderApps(arr) {
+var grid = document.getElementById('appsGrid');
+grid.innerHTML = '';
+if(!arr.length) {
+grid.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:30px; color:#64748b;">No se encontraron resultados</p>';
+return;
+}
+arr.forEach(function(item){
+var card = document.createElement('div');
+card.className = 'card';
+card.onclick = function() { openApp(item.id); };
+card.innerHTML = '<img src="' + item.img + '" onerror="this.src=\'https://cdn-icons-png.flaticon.com/512/888/888879.png\'"><div class="name">' + item.name + '</div><div class="ver">' + item.ver + '</div>';
+grid.appendChild(card);
+});
+}
+history.replaceState({page: 'home'}, '', '#home');
+renderApps(appList);
+</script>
+</body>
+</html>
