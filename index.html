@@ -177,9 +177,16 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <button class="nav-btn" onclick="filterCat('roms')"><span>💾</span> ROMs</button>
 <button class="nav-btn" onclick="filterCat('dlc')"><span>📦</span> DLC</button>
 <button class="nav-btn" onclick="filterCat('exe')"><span>💻</span> EXE</button>
+<button class="nav-btn" onclick="filterCat('iso')"><span>📀</span> ISO</button>
 </nav>
 <script>
 var appList = [
+{
+id: 23, name: "GTA Vice City Stories", cat: "iso", genre: "PSP / PPSSPP", ver: "PSP",
+dev: "Rockstar Games", size: "643.37 Mb", img: "https://m.media-amazon.com/images/I/81+Tgg9pB-L.jpg",
+lnk: "https://www.mediafire.com/file/9qyttag3wdxn4la/GTA_Vice_City_Story.ISO/file?dkey=rzvum1pqe6f&r=320",
+desc: "Grand Theft Auto: Vice City Stories, publicado originalmente en octubre de 2006. A menudo se le confunde con el título de sobremesa, pero el Vice City clásico de PS2 nunca tuvo una conversión directa debido a las limitaciones técnicas de la época; en su lugar, Rockstar desarrolló esta ambiciosa precuela desde cero aprovechando al máximo el potencial de la PSP."
+},
 {
 id: 22, name: "Bulma Adventure 4", cat: "exe", genre: "PC / Adultos", ver: "Sin Censura",
 dev: "PC Indie", size: "211 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQymRqjtH__YBPGWp2LkAeJMCYA52k39rMUdmw1ySvpqB0vmfHRIsVGZbk&s=10",
@@ -287,7 +294,7 @@ if(cat === 'all') {
 document.getElementById('catTitle').innerText = "Catálogo Completo";
 renderGrid(appList);
 } else {
-var titles = { juegos: "Juegos", apps: "Aplicaciones", emuladores: "Emuladores", roms: "ROMs", dlc: "DLC", exe: "EXE" };
+var titles = { juegos: "Juegos", apps: "Aplicaciones", emuladores: "Emuladores", roms: "ROMs", dlc: "DLC", exe: "EXE", iso: "ISO" };
 document.getElementById('catTitle').innerText = titles[cat] || "Categoría";
 var filtered = appList.filter(function(x){ return x.cat === cat; });
 renderGrid(filtered);
