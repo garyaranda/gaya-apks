@@ -154,7 +154,7 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 </div>
 <div class="info-table-card">
 <div class="info-row"><span class="info-label">Desarrollador</span><span class="info-value" id="dDev">Gaya APKs</span></div>
-<div class="info-row"><span class="info-label">Actualización</span><span class="info-value">20 Sept 2026</span></div>
+<div class="info-row"><span class="info-label">Actualización</span><span class="info-value">22 Sept 2026</span></div>
 <div class="info-row"><span class="info-label">Versión</span><span class="info-value" id="dVerTable">1.0</span></div>
 <div class="info-row"><span class="info-label">Tamaño</span><span class="info-value" id="dSize">--</span></div>
 </div>
@@ -163,7 +163,7 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <div class="rating-score">4.9 / 5</div>
 </div>
 <div class="desc-box">
-<h4>Acerca de esta APK</h4>
+<h4>Acerca de esta aplicación</h4>
 <p id="dDesc">Descripción...</p>
 </div>
 <a href="https://t.me/garysapk27" target="_blank" class="dl-btn btn-blue">UNIRSE AL CANAL DE TELEGRAM</a>
@@ -180,6 +180,12 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 </nav>
 <script>
 var appList = [
+{
+id: 22, name: "Bulma Adventure 4", cat: "exe", genre: "PC / Adultos", ver: "Sin Censura",
+dev: "PC Indie", size: "211 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQymRqjtH__YBPGWp2LkAeJMCYA52k39rMUdmw1ySvpqB0vmfHRIsVGZbk&s=10",
+lnk: "https://www.mediafire.com/file/bbieps9uvhvbs7j/Bulma_Adventure_4_Sin_Censura_En_Espa%25C3%25B1ol.rar/file",
+desc: "Juego para adultos para computadora (PC)."
+},
 {
 id: 18, name: "GTA San Andreas", cat: "juegos", genre: "Mundo Abierto / Acción", ver: "2.11.277",
 dev: "Rockstar Games", size: "2.46 GB", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgEqtzJKZa9RAYalP11o5tfSBayfCk9M073rCJBMLgbSzDXoFjpzTPeUCi&s=10",
@@ -367,7 +373,7 @@ if (found.tut) {
 var btnTut = document.createElement('a');
 btnTut.href = found.tut;
 btnTut.target = '_blank';
-btnTut.className = 'dl-btn btn-yt-tut';
+btnTut.className, 'dl-btn btn-yt-tut';
 btnTut.innerHTML = '▶ Tutorial de descarga';
 btnArea.appendChild(btnTut);
 }
