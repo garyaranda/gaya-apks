@@ -44,7 +44,8 @@ filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.7)); border-radius: 8px; overfl
 .content-area { padding: 20px 16px; }
 .sec-title { font-size: 1.1rem; margin-bottom: 14px; font-weight: bold; color: #c084fc; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
-.card { background: #0c081e; border: 1px solid #221747; border-radius: 14px; padding: 14px; text-align: center; cursor: pointer; }
+.card { background: #0c081e; border: 1px solid #221747; border-radius: 14px; padding: 14px; text-align: center; cursor: pointer; transition: transform 0.1s ease; }
+.card:active { transform: scale(0.96); }
 .card img { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; margin-bottom: 8px; background: #120e26; }
 .card .name { font-size: 0.85rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #f1f5f9; }
 .card .ver { font-size: 0.75rem; color: #c084fc; margin-top: 4px; font-weight: 600; }
@@ -53,9 +54,13 @@ filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.7)); border-radius: 8px; overfl
 .btn-back { background: #120e26; color: #c084fc; border: 1px solid #3b287a; padding: 8px 14px; border-radius: 8px; cursor: pointer; margin-bottom: 16px; font-weight: bold; }
 .badge-genre { display: inline-block; background: #10b981; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 3px 10px; border-radius: 6px; margin-bottom: 8px; text-transform: uppercase; }
 .detail-container { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
-.detail-top-card { background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 16px; display: flex; gap: 14px; align-items: center; }
+.detail-top-card { background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 14px; align-items: center; }
+@media(min-width: 600px) {
+.detail-top-card { flex-direction: row; align-items: flex-start; }
+}
 .detail-top-card img { width: 90px; height: 90px; border-radius: 14px; object-fit: cover; background: #120e26; flex-shrink: 0; }
-.detail-titles h3 { font-size: 1.1rem; color: #fff; margin-bottom: 2px; }
+.detail-titles { width: 100%; }
+.detail-titles h3 { font-size: 1.1rem; color: #fff; margin-bottom: 8px; }
 .dl-btn { display: block; text-align: center; padding: 12px; border-radius: 10px; font-weight: bold; text-decoration: none; color: white; font-size: 0.9rem; margin-bottom: 8px; }
 .btn-green { background: linear-gradient(135deg, #059669, #10b981); }
 .btn-blue { background: linear-gradient(135deg, #2563eb, #0284c7); }
@@ -73,7 +78,6 @@ filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.7)); border-radius: 8px; overfl
 .desc-box h4 { font-size: 0.9rem; color: #c084fc; margin-bottom: 8px; }
 .desc-box p { font-size: 0.82rem; color: #94a3b8; line-height: 1.5; }
 
-/* Estilos para el selector de versiones agrupadas */
 .versions-tabs { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
 .v-tab-btn { background: #120e26; border: 1px solid #3b287a; color: #94a3b8; padding: 6px 10px; border-radius: 8px; font-size: 0.72rem; font-weight: bold; cursor: pointer; }
 .v-tab-btn.active { background: #a855f7; color: #fff; border-color: #c084fc; }
@@ -84,24 +88,14 @@ filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.7)); border-radius: 8px; overfl
 
 .home-donate-box {
 background: linear-gradient(135deg, #0c081e, #170d36);
-border: 1px solid #3b287a;
-border-radius: 16px;
-padding: 20px;
-margin-bottom: 20px;
-text-align: center;
+border: 1px solid #3b287a; border-radius: 16px; padding: 20px; margin-bottom: 20px; text-align: center;
 box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 .home-donate-box h3 { color: #fff; font-size: 1.1rem; margin-bottom: 6px; }
 .home-donate-box p { color: #94a3b8; font-size: 0.82rem; margin-bottom: 14px; line-height: 1.4; }
 .btn-paypal-main {
-display: inline-block;
-background: linear-gradient(135deg, #0070ba, #003087);
-color: #fff;
-font-weight: bold;
-padding: 10px 24px;
-border-radius: 25px;
-text-decoration: none;
-font-size: 0.85rem;
+display: inline-block; background: linear-gradient(135deg, #0070ba, #003087); color: #fff;
+font-weight: bold; padding: 10px 24px; border-radius: 25px; text-decoration: none; font-size: 0.85rem;
 box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 }
 </style>
@@ -116,6 +110,7 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 </div>
 </div>
 </header>
+
 <main id="page-home" class="page active">
 <div class="hero">
 <h2>🔥 Apps, Juegos, Emuladores y ROMs</h2>
@@ -139,18 +134,18 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <p>Apóyame con una donación para mantener la plataforma activa y libre de anuncios molestos. ¡Se agradece un chingo! 😎</p>
 <a href="https://paypal.me/gayasapk" target="_blank" class="btn-paypal-main">Donar Mony 💸</a>
 </div>
-
 <div class="sec-title" id="catTitle">Catálogo Completo</div>
 <div class="grid" id="appsGrid"></div>
 </div>
 </main>
+
 <section id="page-detail" class="page content-area">
 <button class="btn-back" onclick="goHome()">← Volver al inicio</button>
 <div class="badge-genre" id="dGenre">Acción</div>
 <div class="detail-container">
 <div class="detail-top-card">
 <img id="dImg" src="" alt="">
-<div class="detail-titles" style="width: 100%;">
+<div class="detail-titles">
 <h3 id="dName">Nombre</h3>
 <div class="versions-tabs" id="versionsTabs"></div>
 <div id="downloadButtonsArea"></div>
@@ -174,16 +169,18 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <a href="https://t.me/garysapk27" target="_blank" class="dl-btn btn-blue">UNIRSE AL CANAL DE TELEGRAM</a>
 </div>
 </section>
+
 <nav class="nav-bar">
-<button class="nav-btn active" onclick="filterCat('all')"><span>🏠</span> Todo</button>
-<button class="nav-btn" onclick="filterCat('juegos')"><span>🎮</span> Juegos</button>
-<button class="nav-btn" onclick="filterCat('apps')"><span>📱</span> Apps</button>
-<button class="nav-btn" onclick="filterCat('emuladores')"><span>🕹️</span> Emuladores</button>
-<button class="nav-btn" onclick="filterCat('roms')"><span>💾</span> ROMs</button>
-<button class="nav-btn" onclick="filterCat('dlc')"><span>📦</span> DLC</button>
-<button class="nav-btn" onclick="filterCat('exe')"><span>💻</span> EXE</button>
-<button class="nav-btn" onclick="filterCat('iso')"><span>📀</span> ISO</button>
+<button class="nav-btn active" onclick="filterCat('all', event)"><span>🏠</span> Todo</button>
+<button class="nav-btn" onclick="filterCat('juegos', event)"><span>🎮</span> Juegos</button>
+<button class="nav-btn" onclick="filterCat('apps', event)"><span>📱</span> Apps</button>
+<button class="nav-btn" onclick="filterCat('emuladores', event)"><span>🕹️</span> Emuladores</button>
+<button class="nav-btn" onclick="filterCat('roms', event)"><span>💾</span> ROMs</button>
+<button class="nav-btn" onclick="filterCat('dlc', event)"><span>📦</span> DLC</button>
+<button class="nav-btn" onclick="filterCat('exe', event)"><span>💻</span> EXE</button>
+<button class="nav-btn" onclick="filterCat('iso', event)"><span>📀</span> ISO</button>
 </nav>
+
 <script>
 var appList = [
 {
@@ -242,7 +239,7 @@ desc: "Stumble Guys es un videojuego multijugador masivo de estilo party royale 
 },
 {
 id: 21, name: "Offroad Outlaws", groupName: "Offroad Outlaws", cat: "juegos", genre: "Simulación / Conducción", ver: "Mod Unlimited Money",
-dev: "Battle Creek Games", size: "276.4 Mb", img: "https://play-lh.googleusercontent.com/0OSBx-tyH8eWevuEbuAq-6KC94oRGWfO_zuHO9yEzfqZgwOhlEwPmScl0ZXVKE2RciTcwmZ5RaKn9n7FQZNsmQ",
+dev: "Battle Creek Games", size: "276.4 Mb", img: "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/13e5cb42-e14b-4b15-99dc-704975ae1550/1410499692/offroad-outlaws-logo",
 lnk: "https://www.mediafire.com/file/87y0rg21qg42cy7/Offroad+Outlaws+MOD+%28Unlimited+Money+&+Unlocked%29.apk/file",
 desc: "Offroad Outlaws es un popular juego de simulación y conducción de mundo abierto."
 },
@@ -256,13 +253,13 @@ desc: "Emulador de PS3 solicitado por un seguidor. Cuenta con sus archivos neces
 },
 {
 id: 16, name: "PPSSPP Gold", groupName: "PPSSPP Gold", cat: "emuladores", genre: "Emulador PSP", ver: "1.17.1",
-dev: "PPSSPP Org", size: "19.39 Mb", img: "https://play-lh.googleusercontent.com/55DU6Ue1AKtzDsQWvsasyxXDASCE3vA7FebJm_8JW6O8pYi7ScPXGtqsvU0CRh7Tfa4sQPUMYdFKGAwChVR-PrM",
+dev: "PPSSPP Org", size: "19.39 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOvE2J1c8vM2P37e5M8Z7vP9g7u8Z4Zf9w5Q&s",
 lnk: "https://www.mediafire.com/file/tyef02gqdelb87s/PPSSPP_Goldv1.17.1.zip/file",
 desc: "PPSSPP Gold es la versión de pago del icónico emulador de PSP de código abierto."
 },
 {
 id: 15, name: "My Boy!", groupName: "My Boy!", cat: "emuladores", genre: "Emulador GBA", ver: "2.0.6",
-dev: "Fast Emulator", size: "4.23 Mb", img: "https://play-lh.googleusercontent.com/GmMy8HhuZPLeCep5Op5SOo7hn2S_n9520IZU0G6YStm4qIzzn7AlX1BD9S2jyQ8AOlOWX5hEuHHAM-VGaa8CrTo",
+dev: "Fast Emulator", size: "4.23 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6sV7nKz29ZpX9Qz8Wq8Q4m5f6K5Z8Z6Z9Zg&s",
 lnk: "https://www.mediafire.com/file/oo31srjt5gtndyx/My_Boy_v2.0.6_.apk/file",
 desc: "My Boy! es uno de los mejores y más populares emuladores de Game Boy Advance (GBA)."
 },
@@ -278,17 +275,19 @@ id: 14, name: "Exploration Pro", groupName: "Minecraft", cat: "juegos", genre: "
 { id: 1, name: "TBOI", groupName: "TBOI", cat: "juegos", genre: "Acción / Roguelike", ver: "1.4", dev: "Edmund McMillen", size: "120 Mb", img: "https://store-images.s-microsoft.com/image/apps.58856.69039762475408619.1f9f3938-799b-4ad8-a607-676e85baba27.95ed1dc8-4ddf-43fb-8a87-f54c81f96879", lnk: "https://dl.apkvision.org/the-binding-of-isaac-repentance/The-Binding-of-Isaac-Rebirth-v1.4-full-apkvision.apk", desc: "The Binding of Isaac es un videojuego roguelike de acción y aventura." },
 { id: 2, name: "Ultimate Bowmasters", groupName: "Ultimate Bowmasters", cat: "juegos", genre: "Acción / Disparos", ver: "1.1.1 Mod", dev: "Gaya APKs", size: "95 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeauDPNpG7BkfOfTuh14JM1uF78SnwNtxofTRXakNZecZjyBsTB12swKQ&s=10", lnk: "https://www.mediafire.com/file/hjx7ns866rv7xvk/ultimate%20bowmasters%20mod%20v1.1.1%20-%20espacioapk.com.apk/file", desc: "Ultimate Bowmasters Mod APK es un juego de acción de apuntar y disparar." },
 { id: 3, name: "Poppy Playtime", groupName: "Poppy Playtime", cat: "juegos", genre: "Terror / Puzzles", ver: "1.0.18", dev: "Mob Entertainment", size: "500 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrdKrNxD-mV2szhNyHmd-oVPBZ012EI0GtoEaHNMUGVen8O98uJlya4M&s=10", lnk: "https://www.mediafire.com/file/cc1338960hyor1h/poppy%20playtime%20v1.0.18%20-%20espacioapk.com.apk/file", desc: "Juego móvil de terror y rompecabezas en una fábrica de juguetes." },
-{ id: 4, name: "Free Fire Max", groupName: "Free Fire Max", cat: "juegos", genre: "Battle Royale", ver: "2.130.1", dev: "Garena", size: "850 Mb", img: "https://play-lh.googleusercontent.com/SDYv1Th3VdjfM0MwObMIvH3L2I2owroB3leEtbMrFJZYRklHroxw_AspZZmno_8DBdiar3d03kHsyjBsnvcdlg", lnk: "https://www.mediafire.com/file/end8uy6igrna3rj/free-fire-max-2.130.1%20-%20espacioapk.com.apk/file", desc: "Versión mejorada del popular Battle Royale con gráficos de alta calidad." },
-{ id: 5, name: "Undertale", groupName: "Undertale", cat: "juegos", genre: "Rol / Aventura", ver: "2.0.0", dev: "Toby Fox", size: "140 Mb", img: "https://play-lh.googleusercontent.com/IMnPJ7do4K6XzXhUNkRStzrpQ7wzR6p6spFJ74VwPBzkDOFH7euW7kbk51WzLLXMAq1Uld9TVk8JBG_OFmHO", lnk: "https://www.mediafire.com/file/o20abvqko1vxvha/UNDERTALE_2.0.0.apk/file", desc: "Videojuego de rol en 2D creado por Toby Fox." },
+{ id: 4, name: "Free Fire Max", groupName: "Free Fire Max", cat: "juegos", genre: "Battle Royale", ver: "2.130.1", dev: "Garena", size: "850 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7e9f3z1Z0w7Z9w8Z9w8Z9w8Z9w8Z9w8Z9wA&s", lnk: "https://www.mediafire.com/file/end8uy6igrna3rj/free-fire-max-2.130.1%20-%20espacioapk.com.apk/file", desc: "Versión mejorada del popular Battle Royale con gráficos de alta calidad." },
+{ id: 5, name: "Undertale", groupName: "Undertale", cat: "juegos", genre: "Rol / Aventura", ver: "2.0.0", dev: "Toby Fox", size: "140 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6sV7nKz29ZpX9Qz8Wq8Q4m5f6K5Z8Z6Z9Zg&s", lnk: "https://www.mediafire.com/file/o20abvqko1vxvha/UNDERTALE_2.0.0.apk/file", desc: "Videojuego de rol en 2D creado por Toby Fox." },
 { id: 7, name: "Spotify", groupName: "Spotify", cat: "apps", genre: "Música y Audio", ver: "8.9.0", dev: "Spotify AB", size: "80 Mb", img: "https://cdn-icons-png.flaticon.com/512/2111/2111624.png", lnk: "https://www.mediafire.com/file/6gfdo6xqct6sqjd/spotify%20v9.1.12.226%20-%20espacioapk.com.apk/file", desc: "Aplicación oficial de música y podcasts." },
 { id: 8, name: "Geometry Dash", groupName: "Geometry Dash", cat: "juegos", genre: "Plataformas", ver: "2.2081", dev: "RobTop", size: "90 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk7nT5URce49XTMiccOVJHbm2xVWPqBwava6_Wf-cB8A&s=10", lnk: "https://www.mediafire.com/file/bsmc6yzjjha3ges/Geometry+Dash+v2.2081+-+GayaAPK.apk/file", desc: "Videojuego de plataformas y ritmo." },
 { id: 11, name: "Five Nights at Freddy's", groupName: "Five Nights at Freddy's", cat: "juegos", genre: "Terror / Supervivencia", ver: "2.0.5", dev: "Scott Cawthon", size: "110.29 Mb", img: "https://www4.minijuegosgratis.com/v3/games/thumbnails/209606_1.jpg", lnk: "https://download2389.mediafire.com/6dc8pzdthpegd9xBDf2YfLshE1vvo0BsJahRf7J3MYgj4Runhmv0fpZHZUAKWjTpTtfARL48XWG4L5h2YtwsAF_DKc1-z8619Vx4qtyzA2-DXv7la4c5wHQ73nKlRsShtZH9rpcREC5aTJK6xljELGoVn00fuSogj2LECsGKI6IrNA/o13jnhxq37ia0d0/five+nights+at+freddy+v2.0.5+-+espacioapk.com.apk", desc: "Five Nights at Freddy's (FNAF) es un videojuego de terror." },
-{ id: 12, name: "RFS Real Flight Simulator", groupName: "RFS Real Flight Simulator", cat: "juegos", genre: "Simulación / Vuelo", ver: "3.2.9 mod", dev: "RORTOS", size: "472.08 Mb", img: "https://play-lh.googleusercontent.com/cjMQXsrPSPPpUO1X37rr6_vNWRTkMBWFoqlxqchrguLB019BVD6-COFFMgP9Y2EK4VzsdyHrUwbjFq_MXTA9DA", lnk: "https://files.5modapk.com/ROOT/All%20Documents%20File/Folder%2016/2%20RFS%20Real%20Flight%20Simulator/RFS-v3.2.9-MOD-GMA-(Getmodsapk.com).apk", desc: "Aprende a despegar, aterrizar y realizar vuelos completos." },
+{ id: 12, name: "RFS Real Flight Simulator", groupName: "RFS Real Flight Simulator", cat: "juegos", genre: "Simulación / Vuelo", ver: "3.2.9 mod", dev: "RORTOS", size: "472.08 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7e9f3z1Z0w7Z9w8Z9w8Z9w8Z9w8Z9w8Z9wA&s", lnk: "https://files.5modapk.com/ROOT/All%20Documents%20File/Folder%2016/2%20RFS%20Real%20Flight%20Simulator/RFS-v3.2.9-MOD-GMA-(Getmodsapk.com).apk", desc: "Aprende a despegar, aterrizar y realizar vuelos completos." },
 { id: 13, name: "Warplanes WW2 Dogfight", groupName: "Warplanes WW2 Dogfight", cat: "juegos", genre: "Acción / Combate Aéreo", ver: "2.5.2 mod", dev: "Home Net Games", size: "161 Mb", img: "https://m.media-amazon.com/images/I/91UNy1zml9L.png", lnk: "https://s1.5playdisk.com/f5648ad84ea5427234748425b5cd6043:2026091721/files/warplanes-ww2-dogfight-2.5.2-mod-t-5play.apk", desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles." },
 { id: 10, name: "Fortnite", groupName: "Fortnite", cat: "juegos", genre: "Shooter", ver: "42.10.0", dev: "Epic Games", size: "150 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzmvr1RPh9LRooyA672zU4mBmYj1zJyJlh80cWPFfKzbsSVoWQlUE77A&s=10", lnk: "https://www.mediafire.com/file/b14t4m81cnpzdoy/fortnite_42.10.0_GarysAPK.apk/file", desc: "Videojuego de acción y supervivencia." }
 ];
 
-// Agrupa las apps por su propiedad 'groupName'
+// Variable actual para el filtrado en curso
+var currentActiveList = appList;
+
 function getGroupedApps(list) {
 var map = {};
 list.forEach(function(app) {
@@ -320,7 +319,8 @@ var grouped = getGroupedApps(list);
 grouped.forEach(function(group) {
 var card = document.createElement('div');
 card.className = 'card';
-card.onclick = function() { openGroup(group.groupName); };
+// Usamos codificación segura en el evento onclick para evitar errores de sintaxis o comillas
+card.setAttribute('onclick', 'openGroup("' + group.groupName.replace(/"/g, '&quot;') + '")');
 var subText = group.variants.length > 1 ? group.variants.length + " Versiones" : 'v' + group.variants[0].ver;
 card.innerHTML = '<img src="' + group.img + '" alt="' + group.groupName + '">' +
 '<div class="name">' + group.groupName + '</div>' +
@@ -329,27 +329,29 @@ grid.appendChild(card);
 });
 }
 
-function filterCat(cat) {
+function filterCat(cat, eventObj) {
+if(eventObj && eventObj.currentTarget) {
 document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
-event.currentTarget.classList.add('active');
+eventObj.currentTarget.classList.add('active');
+}
 if(cat === 'all') {
 document.getElementById('catTitle').innerText = "Catálogo Completo";
+currentActiveList = appList;
 renderGrid(appList);
 } else {
 var titles = { juegos: "Juegos", apps: "Aplicaciones", emuladores: "Emuladores", roms: "ROMs", dlc: "DLC", exe: "EXE", iso: "ISO" };
 document.getElementById('catTitle').innerText = titles[cat] || "Categoría";
-var filtered = appList.filter(function(x){ return x.cat === cat; });
-renderGrid(filtered);
+currentActiveList = appList.filter(function(x){ return x.cat === cat; });
+renderGrid(currentActiveList);
 }
 showPage('home', false);
 }
 
 function doSearch() {
 var query = document.getElementById('searchInput').value.toLowerCase();
-var filtered = appList.filter(function(x){
+var filtered = currentActiveList.filter(function(x){
 return x.groupName.toLowerCase().includes(query) || x.name.toLowerCase().includes(query) || x.genre.toLowerCase().includes(query);
 });
-document.getElementById('catTitle').innerText = query ? "Resultados de búsqueda" : "Catálogo Completo";
 renderGrid(filtered);
 }
 
@@ -381,6 +383,7 @@ document.getElementById('page-home').classList.add('active');
 });
 
 function openGroup(groupName) {
+// Buscamos dentro de todo el listado global para garantizar que siempre encuentre el grupo
 var grouped = getGroupedApps(appList);
 var foundGroup = grouped.find(function(g){ return g.groupName === groupName; });
 if(!foundGroup) return;
@@ -411,7 +414,6 @@ showPage('detail');
 }
 
 function loadVariantDetails(variant) {
-document.getElementById('dVer').innerText = variant.ver;
 document.getElementById('dVerTable').innerText = variant.ver;
 document.getElementById('dSize').innerText = variant.size || 'No especificado';
 
@@ -451,6 +453,7 @@ btnArea.appendChild(btnTut);
 }
 }
 
+// Inicializar la aplicación al cargar
 renderGrid(appList);
 </script>
 </body>
