@@ -78,6 +78,12 @@ filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.7)); border-radius: 8px; overfl
 .desc-box h4 { font-size: 0.9rem; color: #c084fc; margin-bottom: 8px; }
 .desc-box p { font-size: 0.82rem; color: #94a3b8; line-height: 1.5; }
 
+/* Estilos para la galería de capturas */
+.screenshots-box { background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 16px; margin-bottom: 16px; }
+.screenshots-box h4 { font-size: 0.9rem; color: #c084fc; margin-bottom: 10px; }
+.screenshots-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+.screenshots-scroll img { width: 220px; height: 125px; object-fit: cover; border-radius: 10px; border: 1px solid #3b287a; flex-shrink: 0; }
+
 .versions-tabs { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
 .v-tab-btn { background: #120e26; border: 1px solid #3b287a; color: #94a3b8; padding: 6px 10px; border-radius: 8px; font-size: 0.72rem; font-weight: bold; cursor: pointer; }
 .v-tab-btn.active { background: #a855f7; color: #fff; border-color: #c084fc; }
@@ -165,6 +171,11 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <div class="desc-box">
 <h4>Acerca de esta aplicación</h4>
 <p id="dDesc">Descripción...</p>
+</div>
+<!-- Contenedor dinámico de capturas -->
+<div id="screenshotsSection" style="display: none;" class="screenshots-box">
+<h4>Capturas del juego</h4>
+<div class="screenshots-scroll" id="dScreenshots"></div>
 </div>
 <a href="https://t.me/garysapk27" target="_blank" class="dl-btn btn-blue">UNIRSE AL CANAL DE TELEGRAM</a>
 </div>
@@ -262,7 +273,7 @@ id: 11, name: "Five Nights at Freddy's", groupName: "Five Nights at Freddy's", c
 {
 id: 12, name: "RFS Real Flight Simulator", groupName: "RFS Real Flight Simulator", cat: "juegos", genre: "Simulación / Vuelo", ver: "3.2.9 mod", dev: "RORTOS", size: "472.08 Mb", img: "https://play-lh.googleusercontent.com/cjMQXsrPSPPpUO1X37rr6_vNWRTkMBWFoqlxqchrguLB019BVD6-COFFMgP9Y2EK4VzsdyHrUwbjFq_MXTA9DA", lnk: "https://files.5modapk.com/ROOT/All%20Documents%20File/Folder%2016/2%20RFS%20Real%20Flight%20Simulator/RFS-v3.2.9-MOD-GMA-(Getmodsapk.com).apk", desc: "Aprende a despegar, aterrizar y realizar vuelos completos en simulador realista." },
 {
-id: 13, name: "Warplanes WW2 Dogfight", groupName: "Warplanes WW2 Dogfight", cat: "juegos", genre: "Acción / Combate Aéreo", ver: "2.5.2 mod", dev: "Home Net Games", size: "161 Mb", img: "https://m.media-amazon.com/images/I/91UNy1zml9L.png", lnk: "https://s1.5playdisk.com/f5648ad84ea5427234748425b5cd6043:2026091721/files/warplanes-ww2-dogfight-2.5.2-mod-t-5play.apk", desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles." },
+id: 13, name: "Warplanes WW2 Dogfight", groupName: "Warplanes WW2 Dogfight", cat: "juegos", genre: "Acción / Combate Aéreo", ver: "2.5.2 mod", dev: "Home Net Games", size: "161 Mb", img: "https://s1.5playdisk.com/f5648ad84ea5427234748425b5cd6043:2026091721/files/warplanes-ww2-dogfight-2.5.2-mod-t-5play.apk", desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles." },
 { id: 1, name: "TBOI", groupName: "TBOI", cat: "juegos", genre: "Acción / Roguelike", ver: "1.4", dev: "Edmund McMillen", size: "120 Mb", img: "https://store-images.s-microsoft.com/image/apps.58856.69039762475408619.1f9f3938-799b-4ad8-a607-676e85baba27.95ed1dc8-4ddf-43fb-8a87-f54c81f96879", lnk: "https://dl.apkvision.org/the-binding-of-isaac-repentance/The-Binding-of-Isaac-Rebirth-v1.4-full-apkvision.apk", desc: "The Binding of Isaac es un videojuego roguelike de acción y aventura." },
 { id: 2, name: "Ultimate Bowmasters", groupName: "Ultimate Bowmasters", cat: "juegos", genre: "Acción / Disparos", ver: "1.1.1 Mod", dev: "Gaya APKs", size: "95 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeauDPNpG7BkfOfTuh14JM1uF78SnwNtxofTRXakNZecZjyBsTB12swKQ&s=10", lnk: "https://www.mediafire.com/file/hjx7ns866rv7xvk/ultimate%20bowmasters%20mod%20v1.1.1%20-%20espacioapk.com.apk/file", desc: "Ultimate Bowmasters Mod APK es un juego de acción de apuntar y disparar." },
 { id: 3, name: "Poppy Playtime", groupName: "Poppy Playtime", cat: "juegos", genre: "Terror / Puzzles", ver: "1.0.18", dev: "Mob Entertainment", size: "500 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrdKrNxD-mV2szhNyHmd-oVPBZ012EI0GtoEaHNMUGVen8O98uJlya4M&s=10", lnk: "https://www.mediafire.com/file/cc1338960hyor1h/poppy%20playtime%20v1.0.18%20-%20espacioapk.com.apk/file", desc: "Juego móvil de terror y rompecabezas en una fábrica de juguetes." },
@@ -270,7 +281,27 @@ id: 13, name: "Warplanes WW2 Dogfight", groupName: "Warplanes WW2 Dogfight", cat
 { id: 5, name: "Undertale", groupName: "Undertale", cat: "juegos", genre: "Rol / Aventura", ver: "2.0.0", dev: "Toby Fox", size: "140 Mb", img: "https://play-lh.googleusercontent.com/IMnPJ7do4K6XzXhUNkRStzrpQ7wzR6p6spFJ74VwPBzkDOFH7euW7kbk51WzLLXMAq1Uld9TVk8JBG_OFmHO", lnk: "https://www.mediafire.com/file/o20abvqko1vxvha/UNDERTALE_2.0.0.apk/file", desc: "Videojuego de rol en 2D creado por Toby Fox." },
 { id: 7, name: "Spotify", groupName: "Spotify", cat: "apps", genre: "Música y Audio", ver: "8.9.0", dev: "Spotify AB", size: "80 Mb", img: "https://cdn-icons-png.flaticon.com/512/2111/2111624.png", lnk: "https://www.mediafire.com/file/6gfdo6xqct6sqjd/spotify%20v9.1.12.226%20-%20espacioapk.com.apk/file", desc: "Aplicación oficial de música y podcasts." },
 { id: 8, name: "Geometry Dash", groupName: "Geometry Dash", cat: "juegos", genre: "Plataformas", ver: "2.2081", dev: "RobTop", size: "90 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk7nT5URce49XTMiccOVJHbm2xVWPqBwava6_Wf-cB8A&s=10", lnk: "https://www.mediafire.com/file/bsmc6yzjjha3ges/Geometry+Dash+v2.2081+-+GayaAPK.apk/file", desc: "Videojuego de plataformas y ritmo." },
-{ id: 10, name: "Fortnite", groupName: "Fortnite", cat: "juegos", genre: "Shooter", ver: "42.10.0", dev: "Epic Games", size: "150 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzmvr1RPh9LRooyA672zU4mBmYj1zJyJlh80cWPFfKzbsSVoWQlUE77A&s=10", lnk: "https://www.mediafire.com/file/b14t4m81cnpzdoy/fortnite_42.10.0_GarysAPK.apk/file", desc: "Videojuego de acción y supervivencia." }
+{ 
+  id: 10, 
+  name: "Fortnite", 
+  groupName: "Fortnite", 
+  cat: "juegos", 
+  genre: "Shooter", 
+  ver: "42.10.0", 
+  dev: "Epic Games", 
+  size: "150 Mb", 
+  img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzmvr1RPh9LRooyA672zU4mBmYj1zJyJlh80cWPFfKzbsSVoWQlUE77A&s=10", 
+  lnk: "https://www.mediafire.com/file/b14t4m81cnpzdoy/fortnite_42.10.0_GarysAPK.apk/file", 
+  desc: "Videojuego de acción y supervivencia.",
+  images: [
+    "1000116915_2.jpg",
+    "1000116916_2.jpg",
+    "1000116917_2.jpg",
+    "1000116918_2.jpg",
+    "1000116919_2.jpg",
+    "1000116920_2.jpg"
+  ]
+}
 ];
 
 var currentActiveList = appList;
@@ -287,8 +318,12 @@ genre: app.genre,
 dev: app.dev,
 img: app.img,
 desc: app.desc,
+images: app.images || [],
 variants: []
 };
+}
+if (app.images && app.images.length > 0) {
+map[key].images = app.images;
 }
 map[key].variants.push(app);
 });
@@ -383,16 +418,16 @@ tabBtn.innerText = variant.name;
 tabBtn.onclick = function() {
 document.querySelectorAll('.v-tab-btn').forEach(function(b){ b.classList.remove('active'); });
 tabBtn.classList.add('active');
-loadVariantDetails(variant);
+loadVariantDetails(variant, foundGroup.images);
 };
 tabsArea.appendChild(tabBtn);
 });
 
-loadVariantDetails(foundGroup.variants[0]);
+loadVariantDetails(foundGroup.variants[0], foundGroup.images);
 showPage('detail');
 }
 
-function loadVariantDetails(variant) {
+function loadVariantDetails(variant, groupImages) {
 document.getElementById('dImg').src = variant.img;
 document.getElementById('dName').innerText = variant.groupName;
 document.getElementById('dDev').innerText = variant.dev || 'Gaya APKs';
@@ -400,6 +435,24 @@ document.getElementById('dDesc').innerText = variant.desc;
 document.getElementById('dGenre').innerText = variant.genre;
 document.getElementById('dVerTable').innerText = variant.ver;
 document.getElementById('dSize').innerText = variant.size || 'No especificado';
+
+// Manejo de las capturas de pantalla
+var screenshotsSection = document.getElementById('screenshotsSection');
+var screenshotsContainer = document.getElementById('dScreenshots');
+screenshotsContainer.innerHTML = '';
+
+var activeImages = variant.images || groupImages || [];
+if (activeImages.length > 0) {
+screenshotsSection.style.display = 'block';
+activeImages.forEach(function(imgSrc) {
+var imgTag = document.createElement('img');
+imgTag.src = imgSrc;
+imgTag.alt = 'Captura de pantalla';
+screenshotsContainer.appendChild(imgTag);
+});
+} else {
+screenshotsSection.style.display = 'none';
+}
 
 var btnArea = document.getElementById('downloadButtonsArea');
 btnArea.innerHTML = '';
