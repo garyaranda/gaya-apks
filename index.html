@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaya APKs - Android App Market</title>
-<link rel="icon" type="image/png" href="Logo.png">
-<link rel="apple-touch-icon" href="Logo.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0c081e">
 <style>
@@ -19,7 +17,9 @@ position: sticky; top: 0; z-index: 10;
 .logo-container { display: flex; align-items: center; gap: 10px; cursor: pointer; }
 .logo-img {
 width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
-filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.7)); border-radius: 8px; overflow: hidden;
+border-radius: 10px; overflow: hidden; background: linear-gradient(135deg, #170d36, #2d1b69);
+border: 1px solid #a855f7; flex-shrink: 0;
+box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
 }
 .logo-img img { width: 100%; height: 100%; object-fit: cover; }
 .logo-text-group { display: flex; flex-direction: column; }
@@ -77,21 +77,16 @@ filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.7)); border-radius: 8px; overfl
 .desc-box { background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 16px; margin-bottom: 16px; }
 .desc-box h4 { font-size: 0.9rem; color: #c084fc; margin-bottom: 8px; }
 .desc-box p { font-size: 0.82rem; color: #94a3b8; line-height: 1.5; }
-
-/* Estilos para la galería de capturas */
 .screenshots-box { background: #0c081e; border: 1px solid #221747; border-radius: 16px; padding: 16px; margin-bottom: 16px; }
 .screenshots-box h4 { font-size: 0.9rem; color: #c084fc; margin-bottom: 10px; }
 .screenshots-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
 .screenshots-scroll img { width: 220px; height: 125px; object-fit: cover; border-radius: 10px; border: 1px solid #3b287a; flex-shrink: 0; }
-
 .versions-tabs { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
 .v-tab-btn { background: #120e26; border: 1px solid #3b287a; color: #94a3b8; padding: 6px 10px; border-radius: 8px; font-size: 0.72rem; font-weight: bold; cursor: pointer; }
 .v-tab-btn.active { background: #a855f7; color: #fff; border-color: #c084fc; }
-
 .nav-bar { position: fixed; bottom: 0; left: 0; right: 0; height: 60px; background: #0c081e; border-top: 1px solid #221747; display: flex; justify-content: space-around; align-items: center; z-index: 10; overflow-x: auto; }
 .nav-btn { background: none; border: none; color: #64748b; font-size: 0.60rem; font-weight: bold; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; flex-shrink: 0; padding: 0 6px; }
 .nav-btn.active { color: #c084fc; }
-
 .home-donate-box {
 background: linear-gradient(135deg, #0c081e, #170d36);
 border: 1px solid #3b287a; border-radius: 16px; padding: 20px; margin-bottom: 20px; text-align: center;
@@ -109,7 +104,9 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <body>
 <header>
 <div class="logo-container" onclick="goHome()">
-<div class="logo-img"><img src="Logo.png" alt="Logo"></div>
+<div class="logo-img">
+  <img src="https://i.postimg.cc/v8q7YR6w/IMG-20260913-001019.png" alt="GayaAPKs Logo">
+</div>
 <div class="logo-text-group">
 <div class="logo-title">Gaya<span>APKs</span></div>
 <div class="logo-sub">Android App Market</div>
@@ -159,13 +156,11 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 </div>
 </div>
 
-<!-- Galería de capturas colocada justo debajo de los botones de descarga -->
 <div id="screenshotsSection" style="display: none;" class="screenshots-box">
 <h4>Capturas del juego</h4>
 <div class="screenshots-scroll" id="dScreenshots"></div>
 </div>
 
-<!-- Tabla de detalles técnicos movida más abajo -->
 <div class="info-table-card">
 <div class="info-row"><span class="info-label">Desarrollador</span><span class="info-value" id="dDev">Gaya APKs</span></div>
 <div class="info-row"><span class="info-label">Actualización</span><span class="info-value">23 Sept 2026</span></div>
@@ -203,7 +198,13 @@ var appList = [
 id: 28, name: "Konoha milks", groupName: "Konoha milks", cat: "juegos", genre: "Novela Visual / Adultos H", ver: "Adultos H", dev: "Indie", size: "1.28 GB",
 img: "https://techloky.com/public/uploads/images/hokage-adopted-son-4.jpg",
 lnk: "https://www.mediafire.com/file/esrnzq8jvk9a0zy/HokagesAdoptedSon.apk/file",
-desc: "Konoha milks (Hokage's Adopted Son) es un juego de novela visual e interactivo ambientado en el universo de la popular aldea oculta, enfocado en historias y eventos especiales para adultos."
+desc: "Konoha milks (Hokage's Adopted Son) es un juego de novela visual e interactivo ambientado en el universo de la popular aldea oculta, enfocado en historias y eventos especiales para adultos.",
+images: [
+"https://i.ytimg.com/vi/7pCftJGSmpY/maxresdefault.jpg",
+"https://apk2me.com/wp-content/uploads/2026/06/Konoha-Milfs-Full-Game-for-Android-1024x461.webp",
+"https://pix-egi.phncdn.com/c6251/videos/202509/13/22576955/original/01994443-8131-724c-98c4-5ba5042617e2.png/plain/rs:fit:1280:720?validfrom=1751342400&validto=4891363200&hash=qOrh8AkdxotA9m0ehS%2FOnBg7MqU%3D",
+"https://ic-nss.flixcdn.com/a/YTc5NGQ4ZmE0MGVhZWY2MGE2ZDYzYmYwMWMzZDdkYzc/webp%2Cs%28w%3A704%2Ch%3A440%29/video/1T/1TUvu7/screen/7-oFJ.jpg"
+]
 },
 {
 id: 27, name: "Pokémon Rojo y Azul", groupName: "Pokémon Rojo y Azul", cat: "roms", genre: "RPG / Aventura", ver: "Game Boy Advance", dev: "Nintendo / Game Freak", size: "15 Mb",
@@ -257,19 +258,43 @@ id: 23, name: "GTA Vice City Stories (PSP)", groupName: "GTA Vice City", cat: "i
 id: 26, name: "GTA III", groupName: "GTA III", cat: "juegos", genre: "Mundo Abierto / Acción", ver: "Android", dev: "Rockstar Games", size: "574.6 Mb", img: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Grand_Theft_Auto_III_logo.svg?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original", lnk: "https://www.mediafire.com/file/732fdk06arpq0yw/Gta3.7z/file", desc: "Grand Theft Auto III dio inicio a la revolución de los videojuegos en 3D, transportando la libertad criminal de Liberty City a una vibrante y peligrosa ciudad tridimensional."
 },
 {
-id: 24, name: "Halo Combat Evolved", groupName: "Halo Combat Evolved", cat: "exe", genre: "Shooter / Acción", ver: "Windows 10", dev: "Bungie / TheNovaStudios", size: "552.16 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYMeRgGwNthdSCx0csmHDn5GwPPVEbxbMA4ABf1D7-Mg&s=10", lnk: "https://www.mediafire.com/download/1n13udf5541cjhr/Halo+By+TheNovaStudios.rar", desc: "Halo: Combat Evolved es el legendario videojuego de disparos en primera persona que dio origen a una de las sagas más icónicas de la historia de los videojuegos."
+id: 24, name: "Halo Combat Evolved", groupName: "Halo Combat Evolved", cat: "exe", genre: "Shooter / Acción", ver: "Windows 10", dev: "Bungie / TheNovaStudios", size: "552.16 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYMeRgGwNthdSCx0csmHDn5GwPPVEbxbMA4ABf1D7-Mg&s=10", lnk: "https://www.mediafire.com/download/1n13udf5541cjhr/Halo+By+TheNovaStudios.rar", desc: "Halo: Combat Evolved es el legendario videojuego de disparos en primera persona que dio origen a una de las sagas más icónicas de la historia de los videojuegos.",
+images: [
+"https://i0.wp.com/davegladow.com/wp-content/uploads/2025/05/Screenshot-2025-05-01-at-6.07.05%E2%80%AFPM-scaled.png?resize=825%2C510&ssl=1",
+"https://i.ytimg.com/vi/oIpGezBi9Hc/maxresdefault.jpg",
+"https://substackcdn.com/image/fetch/$s_!fPXg!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49b691d6-e96d-41f5-a64d-2cf767a45a93_1920x1080.jpeg",
+"https://cdn.bagogames.com/wp-content/uploads/2016/12/07153512/hce_001-62d6aca5cf174b1f9921ecf8f1adac06.jpg"
+]
 },
 {
-id: 22, name: "Bulma Adventure 4", groupName: "Bulma Adventure 4", cat: "exe", genre: "PC / Adultos", ver: "Sin Censura", dev: "PC Indie", size: "211 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQymRqjtH__YBPGWp2LkAeJMCYA52k39rMUdmw1ySvpqB0vmfHRIsVGZbk&s=10", lnk: "https://www.mediafire.com/file/bbieps9uvhvbs7j/Bulma_Adventure_4_Sin_Censura_En_Espa%25C3%25B1ol.rar/file", desc: "Juego para adultos para computadora (PC)."
+id: 22, name: "Bulma Adventure 4", groupName: "Bulma Adventure 4", cat: "exe", genre: "PC / Adultos", ver: "Sin Censura", dev: "PC Indie", size: "211 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQymRqjtH__YBPGWp2LkAeJMCYA52k39rMUdmw1ySvpqB0vmfHRIsVGZbk&s=10", lnk: "https://www.mediafire.com/file/bbieps9uvhvbs7j/Bulma_Adventure_4_Sin_Censura_En_Espa%25C3%25B1ol.rar/file", desc: "Juego para adultos para computadora (PC).",
+images: [
+"https://i.ytimg.com/vi/hwIX0t2xI04/maxresdefault.jpg",
+"https://i.ytimg.com/vi/DRG4jzXt2jY/hqdefault.jpg",
+"https://cdn2.steamgriddb.com/grid/8bfce0dcb87b779e9f8452e47551f09a.png",
+"https://i.ytimg.com/vi/FfAAS7If4yg/hqdefault.jpg",
+"https://thumb-cdn77.xvideos-cdn.com/f9638822-297e-48d5-a0c9-c82f869fa952/0/xv_15_t.jpg",
+"https://images.asmhentai.com/016/535012/3.jpg"
+]
 },
 {
-id: 18, name: "GTA San Andreas", groupName: "GTA San Andreas", cat: "juegos", genre: "Mundo Abierto / Acción", ver: "2.11.277", dev: "Rockstar Games", size: "2.46 GB", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgEqtzJKZa9RAYalP11o5tfSBayfCk9M073rCJBMLgbSzDXoFjpzTPeUCi&s=10", lnk: "https://download2442.mediafire.com/gy0t4innnnogM7uWjO4szY4ewwbzfZMlcHyUHSmkgQmhDrvyhsWiO5hbVbn6lzaIM0QZfwjIg_KVPsSEoRh1AA1DgHbn1lhJHn3oe0mL7zBR644BIOtImmDnyFOBKjUsEVwK1lb5Wh5dJlh5nl85gfr0WNm2aK9u2RSEXRJt4IwdCQ/5brnv5qxhtng8no/gta+san+andreas+v2.11.277+-+espacioapk.com.apk", desc: "Grand Theft Auto: San Andreas es uno de los videojuegos más icónicos e influyentes de la historia, lanzado originalmente el 26 de octubre de 2004."
+id: 18, name: "GTA San Andreas", groupName: "GTA San Andreas", cat: "juegos", genre: "Mundo Abierto / Acción", ver: "2.11.277", dev: "Rockstar Games", size: "2.46 GB", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgEqtzJKZa9RAYalP11o5tfSBayfCk9M073rCJBMLgbSzDXoFjpzTPeUCi&s=10", lnk: "https://download2442.mediafire.com/gy0t4innnnogM7uWjO4szY4ewwbzfZMlcHyUHSmkgQmhDrvyhsWiO5hbVbn6lzaIM0QZfwjIg_KVPsSEoRh1AA1DgHbn1lhJHn3oe0mL7zBR644BIOtImmDnyFOBKjUsEVwK1lb5Wh5dJlh5nl85gfr0WNm2aK9u2RSEXRJt4IwdCQ/5brnv5qxhtng8no/gta+san+andreas+v2.11.277+-+espacioapk.com.apk", desc: "Grand Theft Auto: San Andreas es uno de los videojuegos más icónicos e influyentes de la historia, lanzado originalmente el 26 de octubre de 2004.",
+images: [
+"https://media.revistagq.com/photos/671779f32cf09b5a52e00a24/16:9/w_2880,h_1620,c_limit/GTA%20San%20Andreas.jpg",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz413JgQiAFn0SwBivXRRPMAfwT-WOyTkPXS2ceLnRU7NxhGvdzGjWRFw&s=10",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqIeFxAlSDeHzcVqEihbyT6diHLcQivEI-K6ovBNAAuQ&s=10"
+]
 },
 {
 id: 19, name: "Castle Crashers", groupName: "Castle Crashers", cat: "dlc", genre: "Beat 'em up / RPG", ver: "1.0", dev: "The Behemoth", size: "162.02 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ4yfoGgxMWdLLyoIOHHeeVWf3TCWuoxhZy0X6UkjK4vifGJshwS6TgGc&s=10", lnk: "https://www.mediafire.com/file/kgio1lr4592gdg9/Castle_Crashers.rar/file", desc: "Castle Crashers es un aclamado videojuego de género beat 'em up en 2D con elementos de RPG, desarrollado por el estudio independiente The Behemoth."
 },
 {
-id: 20, name: "Stumble Guys", groupName: "Stumble Guys", cat: "juegos", genre: "Party Royale / Multijugador", ver: "0.10.2 Mod", dev: "Kitka Games", size: "334.37 Mb", img: "https://img.utdstc.com/icon/0b3/29b/0b329b476699f6cb248922d2500289df9a9bd58a7cc95a967fc4c3c5cb4f14d4:600", lnk: "https://www.mediafire.com/file/g8lbgnd9epjpytj/Stumb13-Guys-v0.102-M00D.apk/file", desc: "Stumble Guys es un videojuego multijugador masivo de estilo party royale y eliminación en grupo."
+id: 20, name: "Stumble Guys", groupName: "Stumble Guys", cat: "juegos", genre: "Party Royale / Multijugador", ver: "0.10.2 Mod", dev: "Kitka Games", size: "334.37 Mb", img: "https://img.utdstc.com/icon/0b3/29b/0b329b476699f6cb248922d2500289df9a9bd58a7cc95a967fc4c3c5cb4f14d4:600", lnk: "https://www.mediafire.com/file/g8lbgnd9epjpytj/Stumb13-Guys-v0.102-M00D.apk/file", desc: "Stumble Guys es un videojuego multijugador masivo de estilo party royale y eliminación en grupo.",
+images: [
+"https://www.stumbleguys.com/images/stocks/trailer_stumb.png",
+"https://play-lh.googleusercontent.com/hMA6zbIofPwkkJJVvLT_qnnHs0oVo0GkA6VyJuMjEkhs-iWIAmweFle8crOSYlVNdobe5UGe2VtGKZAqb5zeVA=w526-h296-rw",
+"https://assets.nintendo.com/image/upload/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000065443/d4cc57f76b0fc4bdb1c33f7bdc66b8e22da4036217124080edc9d0979fe854c3"
+]
 },
 {
 id: 21, name: "Offroad Outlaws", groupName: "Offroad Outlaws", cat: "juegos", genre: "Simulación / Conducción", ver: "Mod Unlimited Money", dev: "Battle Creek Games", size: "276.4 Mb", img: "https://play-lh.googleusercontent.com/0OSBx-tyH8eWevuEbuAq-6KC94oRGWfO_zuHO9yEzfqZgwOhlEwPmScl0ZXVKE2RciTcwmZ5RaKn9n7FQZNsmQ", lnk: "https://www.mediafire.com/file/87y0rg21qg42cy7/Offroad+Outlaws+MOD+%28Unlimited+Money+&+Unlocked%29.apk/file", desc: "Offroad Outlaws es un popular juego de simulación y conducción de mundo abierto desarrollado por Battle Creek Games."
@@ -278,29 +303,148 @@ id: 21, name: "Offroad Outlaws", groupName: "Offroad Outlaws", cat: "juegos", ge
 id: 17, name: "Emulador PS3", groupName: "Emulador PS3", cat: "emuladores", genre: "Emulador Consola", ver: "1.0", dev: "BTECH", size: "No especificado", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJzjTmil8lqgzplR_mD2a0eIb26JE8QyVsOO0LuVfC-diZqoluLbvQhXT8&s=10", lnk: "https://www.mediafire.com/file/j5oczy2nbvdsfc2/Olympus3BTECH.zip/file", lnk2: "https://www.mediafire.com/file/p538tbbrmsj66qh/P53BTECH.zip/file", tut: "https://youtu.be/AVOPIcZYODw?si=hXXfcQR1DG5Z6RPf", desc: "Emulador de PS3 solicitado por un seguidor. Cuenta con sus archivos necesarios divididos en dos opciones de descarga."
 },
 {
-id: 16, name: "PPSSPP Gold", groupName: "PPSSPP Gold", cat: "emuladores", genre: "Emulador PSP", ver: "1.17.1", dev: "PPSSPP Org", size: "19.39 Mb", img: "https://play-lh.googleusercontent.com/55DU6Ue1AKtzDsQWvsasyxXDASCE3vA7FebJm_8JW6O8pYi7ScPXGtqsvU0CRh7Tfa4sQPUMYdFKGAwChVR-PrM", lnk: "https://www.mediafire.com/file/tyef02gqdelb87s/PPSSPP_Goldv1.17.1.zip/file", desc: "PPSSPP Gold es la versión de pago del icónico emulador de PSP de código abierto."
+id: 16, name: "PPSSPP Gold", groupName: "PPSSPP Gold", cat: "emuladores", genre: "Emulador PSP", ver: "1.17.1", dev: "PPSSPP Org", size: "19.39 Mb", img: "https://play-lh.googleusercontent.com/55DU6Ue1AKtzDsQWvsasyxXDASCE3vA7FebJm_8JW6O8pYi7ScPXGtqsvU0CRh7Tfa4sQPUMYdFKGAwChVR-PrM", lnk: "https://www.mediafire.com/file/tyef02gqdelb87s/PPSSPP_Goldv1.17.1.zip/file", desc: "PPSSPP Gold es la versión de pago del icónico emulador de PSP de código abierto.",
+images: [
+"https://play-lh.googleusercontent.com/VtFeqgvo3gEhj_L2zHZLrGEZKAqSA2uIwhF40Ji8YuIy_oJgHqrQj9oax44-JT0wnWlFEEdo78l1UcwJy_gZY_k=w526-h296-rw",
+"https://i.ytimg.com/vi/mL8UbVrS_bY/maxresdefault.jpg"
+]
 },
 {
-id: 15, name: "My Boy!", groupName: "My Boy!", cat: "emuladores", genre: "Emulador GBA", ver: "2.0.6", dev: "Fast Emulator", size: "4.23 Mb", img: "https://play-lh.googleusercontent.com/GmMy8HhuZPLeCep5Op5SOo7hn2S_n9520IZU0G6YStm4qIzzn7AlX1BD9S2jyQ8AOlOWX5hEuHHAM-VGaa8CrTo", lnk: "https://www.mediafire.com/file/oo31srjt5gtndyx/My_Boy_v2.0.6_.apk/file", desc: "My Boy! es uno de los mejores y más populares emuladores de Game Boy Advance (GBA)."
+id: 15, name: "My Boy!", groupName: "My Boy!", cat: "emuladores", genre: "Emulador GBA", ver: "2.0.6", dev: "Fast Emulator", size: "4.23 Mb", img: "https://play-lh.googleusercontent.com/GmMy8HhuZPLeCep5Op5SOo7hn2S_n9520IZU0G6YStm4qIzzn7AlX1BD9S2jyQ8AOlOWX5hEuHHAM-VGaa8CrTo", lnk: "https://www.mediafire.com/file/oo31srjt5gtndyx/My_Boy_v2.0.6_.apk/file", desc: "My Boy! es uno de los mejores y más populares emuladores de Game Boy Advance (GBA).",
+images: [
+"https://play-lh.googleusercontent.com/VHDjCzZF4cBErqs-bkc5DpwDKKNpuvwaaBzFZGsjysvUqpBdz-slP58D9zY0I52KDXVDLfuhv2gH3BU0PPhzbg=w526-h296-rw",
+"https://i.ytimg.com/vi/oamFaGue58E/sddefault.jpg?v=5ed6bd4d",
+"https://play-lh.googleusercontent.com/bRbu2Wlw44AwAv9fRxoOhd8aXycWNIsjzgHTz36lN4jduvQAls_XmonvmtsxijsF9XVQX0ojw68rwYlYUwfhPQ=w526-h296-rw"
+]
 },
 {
-id: 14, name: "Exploration", groupName: "Exploration", cat: "juegos", genre: "Sandbox / Simulación", ver: "1.3.3", dev: "Gaya APKs", size: "2.29 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLF49zbjDuhCObblKKoMC2ZBPwSR232w_tD82iEZNsI5RfRATyd6--hspu&s=10", lnk: "https://www.mediafire.com/download/3rgssax1apxzwoz/Exploration_v1.3.3.apk", desc: "Exploration Pro es un divertido juego ambientado en el estilo clásico de construcción."
+id: 14, name: "Exploration", groupName: "Exploration", cat: "juegos", genre: "Sandbox / Simulación", ver: "1.3.3", dev: "Gaya APKs", size: "2.29 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLF49zbjDuhCObblKKoMC2ZBPwSR232w_tD82iEZNsI5RfRATyd6--hspu&s=10", lnk: "https://www.mediafire.com/download/3rgssax1apxzwoz/Exploration_v1.3.3.apk", desc: "Exploration Pro es un divertido juego ambientado en el estilo clásico de construcción.",
+images: [
+"https://img.utdstc.com/screen/ff3/713/ff37133ca3fd448584453ee6c8f1e46300b09d841518f73f61602123d44b1f69:600",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIac8gpfZoakib7cTgJ_Rsyeoeb2pxATXmwQme5Aeyuw&s",
+"https://static.download.it/scrs/aqf/com.explorationbase.proversion1/screenshots/_-AshQErOvAWA9DV-rXReOWGUKY1UXSizodiJhnKeF4JZJc2CrIamHxvhuMBmuZliYVE=h310.png"
+]
 },
 {
-id: 11, name: "Five Nights at Freddy's", groupName: "Five Nights at Freddy's", cat: "juegos", genre: "Terror / Supervivencia", ver: "2.0.5", dev: "Scott Cawthon", size: "110.29 Mb", img: "https://www4.minijuegosgratis.com/v3/games/thumbnails/209606_1.jpg", lnk: "https://download2389.mediafire.com/6dc8pzdthpegd9xBDf2YfLshE1vvo0BsJahRf7J3MYgj4Runhmv0fpZHZUAKWjTpTtfARL48XWG4L5h2YtwsAF_DKc1-z8619Vx4qtyzA2-DXv7la4c5wHQ73nKlRsShtZH9rpcREC5aTJK6xljELGoVn00fuSogj2LECsGKI6IrNA/o13jnhxq37ia0d0/five+nights+at+freddy+v2.0.5+-+espacioapk.com.apk", desc: "Five Nights at Freddy's (FNAF) es un videojuego de terror y supervivencia."
+id: 11, name: "Five Nights at Freddy's", groupName: "Five Nights at Freddy's", cat: "juegos", genre: "Terror / Supervivencia", ver: "2.0.5", dev: "Scott Cawthon", size: "110.29 Mb", img: "https://www4.minijuegosgratis.com/v3/games/thumbnails/209606_1.jpg", lnk: "https://download2389.mediafire.com/6dc8pzdthpegd9xBDf2YfLshE1vvo0BsJahRf7J3MYgj4Runhmv0fpZHZUAKWjTpTtfARL48XWG4L5h2YtwsAF_DKc1-z8619Vx4qtyzA2-DXv7la4c5wHQ73nKlRsShtZH9rpcREC5aTJK6xljELGoVn00fuSogj2LECsGKI6IrNA/o13jnhxq37ia0d0/five+nights+at+freddy+v2.0.5+-+espacioapk.com.apk", desc: "Five Nights at Freddy's (FNAF) es un videojuego de terror y supervivencia.",
+images: [
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwhuVq1YTqb-wtqKWvGV2z3B9pTSTDa9TCC1berqGwHmdN62dn0ENKC9JMkhkJJnjH5e0ITFO-mrmWHh4N9gUpksuf8JBZwkco_GKRpL-XQw&s=10",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVj97RLpMIAUPHh52wPtYYG_XF9nsKZDT2z9sRAp-bPg-oAWkhNy2mKJeXgodxe9tOmilz7m_ciitW-ZNCOYFMeuGq2EF4rr1fLrTPsi7C&s=10",
+"https://i.ytimg.com/vi/KQGbPna-tWY/maxresdefault.jpg",
+"https://i.ytimg.com/vi/jKq4IQVos58/maxresdefault.jpg"
+]
 },
 {
-id: 12, name: "RFS Real Flight Simulator", groupName: "RFS Real Flight Simulator", cat: "juegos", genre: "Simulación / Vuelo", ver: "3.2.9 mod", dev: "RORTOS", size: "472.08 Mb", img: "https://play-lh.googleusercontent.com/cjMQXsrPSPPpUO1X37rr6_vNWRTkMBWFoqlxqchrguLB019BVD6-COFFMgP9Y2EK4VzsdyHrUwbjFq_MXTA9DA", lnk: "https://files.5modapk.com/ROOT/All%20Documents%20File/Folder%2016/2%20RFS%20Real%20Flight%20Simulator/RFS-v3.2.9-MOD-GMA-(Getmodsapk.com).apk", desc: "Aprende a despegar, aterrizar y realizar vuelos completos en simulador realista."
+id: 29, name: "Fnaf 2", groupName: "Five Nights at Freddy's", cat: "juegos", genre: "Terror / Supervivencia", ver: "2.0.3", dev: "Scott Cawthon", size: "120 Mb", img: "https://m.media-amazon.com/images/I/81HBpJd2h8L.png", lnk: "https://www.mediafire.com/file/ayqqfegy0c1ca76/FNaF2V2.0.3.apk/file", desc: "Segunda entrega de la famosa saga de terror y supervivencia Five Nights at Freddy's, con nuevos animatrónicos y mecánicas de juego.",
+images: [
+"https://play-lh.googleusercontent.com/LOc2pzjEn1nqtEOtfukauDtZJYMWYuE5VWTHVrsnqzCWqZ3qnBR23ELwfIrfoFfKsD9__B1hInQyZQUNgi6I=w526-h296-rw",
+"https://image.api.playstation.com/vulcan/img/cfn/113077hGe2HOhSewZwuFBsAuB1bZbd6IpQQDhDPF5C-X8Bp0OEgyscag9D08XFzKMm8_ADXxUNyYaShSr0fq8hdSWq0tnZFl.jpg",
+"https://assets.nintendo.com/image/upload/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000022095/76a614fabd7aa597431fca43c8726560eeeff58654768bb9892b181de84624bd"
+]
 },
 {
-id: 13, name: "Warplanes WW2 Dogfight", groupName: "Warplanes WW2 Dogfight", cat: "juegos", genre: "Acción / Combate Aéreo", ver: "2.5.2 mod", dev: "Home Net Games", size: "161 Mb", img: "https://s1.5playdisk.com/f5648ad84ea5427234748425b5cd6043:2026091721/files/warplanes-ww2-dogfight-2.5.2-mod-t-5play.apk", desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles." },
-{ id: 1, name: "TBOI", groupName: "TBOI", cat: "juegos", genre: "Acción / Roguelike", ver: "1.4", dev: "Edmund McMillen", size: "120 Mb", img: "https://store-images.s-microsoft.com/image/apps.58856.69039762475408619.1f9f3938-799b-4ad8-a607-676e85baba27.95ed1dc8-4ddf-43fb-8a87-f54c81f96879", lnk: "https://dl.apkvision.org/the-binding-of-isaac-repentance/The-Binding-of-Isaac-Rebirth-v1.4-full-apkvision.apk", desc: "The Binding of Isaac es un videojuego roguelike de acción y aventura." },
-{ id: 2, name: "Ultimate Bowmasters", groupName: "Ultimate Bowmasters", cat: "juegos", genre: "Acción / Disparos", ver: "1.1.1 Mod", dev: "Gaya APKs", size: "95 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeauDPNpG7BkfOfTuh14JM1uF78SnwNtxofTRXakNZecZjyBsTB12swKQ&s=10", lnk: "https://www.mediafire.com/file/hjx7ns866rv7xvk/ultimate%20bowmasters%20mod%20v1.1.1%20-%20espacioapk.com.apk/file", desc: "Ultimate Bowmasters Mod APK es un juego de acción de apuntar y disparar." },
-{ id: 3, name: "Poppy Playtime", groupName: "Poppy Playtime", cat: "juegos", genre: "Terror / Puzzles", ver: "1.0.18", dev: "Mob Entertainment", size: "500 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrdKrNxD-mV2szhNyHmd-oVPBZ012EI0GtoEaHNMUGVen8O98uJlya4M&s=10", lnk: "https://www.mediafire.com/file/cc1338960hyor1h/poppy%20playtime%20v1.0.18%20-%20espacioapk.com.apk/file", desc: "Juego móvil de terror y rompecabezas en una fábrica de juguetes." },
-{ id: 4, name: "Free Fire Max", groupName: "Free Fire Max", cat: "juegos", genre: "Battle Royale", ver: "2.130.1", dev: "Garena", size: "850 Mb", img: "https://play-lh.googleusercontent.com/SDYv1Th3VdjfM0MwObMIvH3L2I2owroB3leEtbMrFJZYRklHroxw_AspZZmno_8DBdiar3d03kHsyjBsnvcdlg", lnk: "https://www.mediafire.com/file/end8uy6igrna3rj/free-fire-max-2.130.1%20-%20espacioapk.com.apk/file", desc: "Versión mejorada del popular Battle Royale con gráficos de alta calidad." },
-{ id: 5, name: "Undertale", groupName: "Undertale", cat: "juegos", genre: "Rol / Aventura", ver: "2.0.0", dev: "Toby Fox", size: "140 Mb", img: "https://play-lh.googleusercontent.com/IMnPJ7do4K6XzXhUNkRStzrpQ7wzR6p6spFJ74VwPBzkDOFH7euW7kbk51WzLLXMAq1Uld9TVk8JBG_OFmHO", lnk: "https://www.mediafire.com/file/o20abvqko1vxvha/UNDERTALE_2.0.0.apk/file", desc: "Videojuego de rol en 2D creado por Toby Fox." },
-{ id: 7, name: "Spotify", groupName: "Spotify", cat: "apps", genre: "Música y Audio", ver: "8.9.0", dev: "Spotify AB", size: "80 Mb", img: "https://cdn-icons-png.flaticon.com/512/2111/2111624.png", lnk: "https://www.mediafire.com/file/6gfdo6xqct6sqjd/spotify%20v9.1.12.226%20-%20espacioapk.com.apk/file", desc: "Aplicación oficial de música y podcasts." },
-{ id: 8, name: "Geometry Dash", groupName: "Geometry Dash", cat: "juegos", genre: "Plataformas", ver: "2.2081", dev: "RobTop", size: "90 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk7nT5URce49XTMiccOVJHbm2xVWPqBwava6_Wf-cB8A&s=10", lnk: "https://www.mediafire.com/file/bsmc6yzjjha3ges/Geometry+Dash+v2.2081+-+GayaAPK.apk/file", desc: "Videojuego de plataformas y ritmo." },
+id: 30, name: "Fnaf 3", groupName: "Five Nights at Freddy's", cat: "juegos", genre: "Terror / Supervivencia", ver: "2.0.2", dev: "Scott Cawthon", size: "115 Mb", img: "https://play-lh.googleusercontent.com/eViOi0sPsrubDYe3NCyfUzfM7z1M7gmf-8sMl7tgyPrZveteUqy_eVQoToS_eh2SvueIAvowyWBFTQaL_jQlhBo", lnk: "https://www.mediafire.com/file/2yix1o03esclp17/fnaf%203%20v2.0.2%20-%20espacioapk.com.apk/file", desc: "Tercera entrega de Five Nights at Freddy's, ambientada en Fazbear's Fright con el temible Springtrap.",
+images: [
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ExQuPgj5UCdAF5IVorI9VHTZjzFg0noR0EfdQCRtYJEEGn3gwcjSCke_&s=10",
+"https://i.ytimg.com/vi/ut6v5NZUGsI/sddefault.jpg"
+]
+},
+{
+id: 31, name: "Fnaf 4", groupName: "Five Nights at Freddy's", cat: "juegos", genre: "Terror / Supervivencia", ver: "2.0.3", dev: "Scott Cawthon", size: "130 Mb", img: "https://m.media-amazon.com/images/I/81AE4nV6jgL.png", lnk: "https://www.mediafire.com/file/60paiajr3th2ded/Five_Nights_at_Freddy%27s_4.apk/file", desc: "Cuarta entrega de la serie FNAF, donde debes sobrevivir en la habitación de un niño pequeño acechado por versiones de pesadilla.",
+images: [
+"https://play-lh.googleusercontent.com/TK7QcFXlhEzBPiwolY-VWBjE04zbe26p5wLzMZxI4e0wviK8qvuJZBA8VJbqyBzdtGDI8-IBomNLWuKyE4Yrzw=w526-h296-rw",
+"https://image.api.playstation.com/vulcan/img/cfn/113076a0OkxelFM9RZuDqrBzqmRoO9bE_5Byp8hdBTsEum8YtotC6gcrROGOMVW4HvDTVHKWJIkVgvBCvq4rq3m9GmkWD6cz.jpg",
+"https://play-lh.googleusercontent.com/wLrSlI2DxNvhNbtTDtRmZOC7lFsZs5VzOzwAIn-PcNsxVzFqx6KBq6s-a6HloK3fkIwLfPJwlB-F33DidXLcKLI=w526-h296-rw"
+]
+},
+{
+id: 32, name: "Fnaf Sister Location", groupName: "Five Nights at Freddy's", cat: "juegos", genre: "Terror / Supervivencia", ver: "2.0.3 mod ilimitado", dev: "Scott Cawthon", size: "140 Mb", img: "https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/8/83/FNaF_SL_-_Box_Art_%28Grande%29.jpeg/revision/latest?cb=20160802184441&path-prefix=es", lnk: "https://www.mediafire.com/file/vtv84vao0e6c8k7/FNaF-Sister-Location-v2.0.3-modilimitado.io.apk/file", desc: "Five Nights at Freddy's: Sister Location te lleva a Circus Baby's Pizza World con una experiencia de terror subterránea y modificada.",
+images: [
+"https://play-lh.googleusercontent.com/lC_EekZe4PGgI-mwNnV9mGrY9Q1Jvwf8L0ENDRMS-6e3j3_e9FW6SylOhbQpYYxQTj1LLkvwHGNLDiXMsC5ZkA=w526-h296-rw",
+"https://play-lh.googleusercontent.com/nLNJlvVaPhR1Wz70o3aHatbkYMRauIjO2LnTCMH3XuHAOplBr6KGwlUT_qAOyCiie0GKksOTrykk5pvt8f3jOdQ=w526-h296-rw",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTADXg4hv8n8m89twCS7WTR8f6ko3NsvWltSDfxERgVkdFQiWVvLZs4SfU&s=10"
+]
+},
+{
+id: 12, name: "RFS Real Flight Simulator", groupName: "RFS Real Flight Simulator", cat: "juegos", genre: "Simulación / Vuelo", ver: "3.2.9 mod", dev: "RORTOS", size: "472.08 Mb", img: "https://play-lh.googleusercontent.com/cjMQXsrPSPPpUO1X37rr6_vNWRTkMBWFoqlxqchrguLB019BVD6-COFFMgP9Y2EK4VzsdyHrUwbjFq_MXTA9DA", lnk: "https://files.5modapk.com/ROOT/All%20Documents%20File/Folder%2016/2%20RFS%20Real%20Flight%20Simulator/RFS-v3.2.9-MOD-GMA-(Getmodsapk.com).apk", desc: "Aprende a despegar, aterrizar y realizar vuelos completos en simulador realista.",
+images: [
+"https://images.sftcdn.net/images/t_app-cover-s-16-9,f_auto/p/7554cb44-28a6-44bb-be50-ee47b727e987/384497842/rfs-real-flight-simulator-screenshot.png",
+"https://play-lh.googleusercontent.com/QtDAFnki6ppUJNJe9rGLyYXJUXtxPt2ZJ8Njf1sMZPCGkUwO1Lh9j4gEg04Z8YsaRpeDVWiN241XgnlzJcKZQA=w526-h296-rw",
+"https://i.ytimg.com/vi/543uZAfcC04/maxresdefault.jpg",
+"https://i.ytimg.com/vi/jEVa_w67kPw/maxresdefault.jpg"
+]
+},
+{
+id: 13, name: "Warplanes WW2 Dogfight", groupName: "Warplanes WW2 Dogfight", cat: "juegos", genre: "Acción / Combate Aéreo", ver: "2.5.2 mod", dev: "Home Net Games", size: "161 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2_0HEO9eOYfVwEmGyPED7PD3C1Mo_2GOArc2x6Gfy6-SLydYMmqCzFEc&s=10", lnk: "https://s1.5playdisk.com/f5648ad84ea5427234748425b5cd6043:2026091721/files/warplanes-ww2-dogfight-2.5.2-mod-t-5play.apk", desc: "El mejor juego de combate aéreo WW2 en dispositivos móviles.",
+images: [
+"https://gamecritics.com/wp-content/uploads/2019/05/dog-3.jpg",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPLr4592OmbfzWPOu4i37t-FBrSoaD4QBI3yYHKRW-EVp4chtuzTkbfvg7&s=10",
+"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/936780/capsule_616x353.jpg?t=1762246059"
+]
+},
+{
+id: 1, name: "TBOI", groupName: "TBOI", cat: "juegos", genre: "Acción / Roguelike", ver: "1.4", dev: "Edmund McMillen", size: "120 Mb", img: "https://store-images.s-microsoft.com/image/apps.58856.69039762475408619.1f9f3938-799b-4ad8-a607-676e85baba27.95ed1dc8-4ddf-43fb-8a87-f54c81f96879", lnk: "https://dl.apkvision.org/the-binding-of-isaac-repentance/The-Binding-of-Isaac-Rebirth-v1.4-full-apkvision.apk", desc: "The Binding of Isaac es un videojuego roguelike de acción y aventura.",
+images: [
+"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/113200/ss_d2dd031f581bcad380ed5a6065c8908329cf1115.1920x1080.jpg?t=1643480517",
+"https://image.api.playstation.com/cdn/UP2103/CUSA00792_00/FREE_CONTENTUSWQMroRuwJLkoYxaPpK/PREVIEW_SCREENSHOT1_66069.png",
+"https://images.gog-statics.com/ff572fbfe0224afeb6d2590346f619b1d45c7fab16295e841485d50485c78eee_product_card_v2_mobile_slider_639.jpg"
+]
+},
+{
+id: 2, name: "Ultimate Bowmasters", groupName: "Ultimate Bowmasters", cat: "juegos", genre: "Acción / Disparos", ver: "1.1.1 Mod", dev: "Gaya APKs", size: "95 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeauDPNpG7BkfOfTuh14JM1uF78SnwNtxofTRXakNZecZjyBsTB12swKQ&s=10", lnk: "https://www.mediafire.com/file/hjx7ns866rv7xvk/ultimate%20bowmasters%20mod%20v1.1.1%20-%20espacioapk.com.apk/file", desc: "Ultimate Bowmasters Mod APK es un juego de acción de apuntar y disparar.",
+images: [
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO79pfyoHz84wH1zxxGKRIilRue9uYIojE2jAQNMLsiZ6Cm1hPEJ2lTz4&s=10",
+"https://i.ytimg.com/vi/8mOJbxK7N7s/maxresdefault.jpg",
+"https://i.ytimg.com/vi/O2JeCpEmiT8/sddefault.jpg",
+"https://i.ytimg.com/vi/L7-2iB-3-Ks/sddefault.jpg",
+"https://i.ytimg.com/vi/q6ijK0goGlk/maxresdefault.jpg"
+]
+},
+{
+id: 3, name: "Poppy Playtime", groupName: "Poppy Playtime", cat: "juegos", genre: "Terror / Puzzles", ver: "1.0.18", dev: "Mob Entertainment", size: "500 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrdKrNxD-mV2szhNyHmd-oVPBZ012EI0GtoEaHNMUGVen8O98uJlya4M&s=10", lnk: "https://www.mediafire.com/file/cc1338960hyor1h/poppy%20playtime%20v1.0.18%20-%20espacioapk.com.apk/file", desc: "Juego móvil de terror y rompecabezas en una fábrica de juguetes.",
+images: [
+"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1721470/d70beda5a42fb0593e6c788baf54c3d71c31f435/capsule_616x353.jpg?t=1789515320",
+"https://play-lh.googleusercontent.com/9n9_iSkOpV-jEYnPeIASsZcP6KAwDWuId8HwTV6JVQmDoypbvhMsN_EUncs0Gtdxog=w526-h296-rw",
+"https://i.ytimg.com/vi/hV-Nc99-NXs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDaFUcmP3ygXjagp6Ub2YSowaJhNg",
+"https://oyster.ignimgs.com/mediawiki/apis.ign.com/poppy-playtime/9/95/20240527162127_1.jpg?width=640"
+]
+},
+{
+id: 4, name: "Free Fire Max", groupName: "Free Fire Max", cat: "juegos", genre: "Battle Royale", ver: "2.130.1", dev: "Garena", size: "850 Mb", img: "https://play-lh.googleusercontent.com/SDYv1Th3VdjfM0MwObMIvH3L2I2owroB3leEtbMrFJZYRklHroxw_AspZZmno_8DBdiar3d03kHsyjBsnvcdlg", lnk: "https://www.mediafire.com/file/end8uy6igrna3rj/free-fire-max-2.130.1%20-%20espacioapk.com.apk/file", desc: "Versión mejorada del popular Battle Royale con gráficos de alta calidad.",
+images: [
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTPlbz6nfGsg0ZbIKV0PGlU6rxzowJdlZJWIYwRfr3c7aoaHRBleWHIdTH&s=10",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs5jmo-UCSr6lzNhI5VNSiqPiJFfy5jWJqB-dQ1aD6GDkZpqIhKJGF3Sk&s=10",
+"https://i.ytimg.com/vi/3lJLcuywm5w/maxresdefault.jpg",
+"https://cdn.beahero.gg/2021/05/Free-Fire-Max-Requisitos-Minimos.jpg"
+]
+},
+{
+id: 5, name: "Undertale", groupName: "Undertale", cat: "juegos", genre: "Rol / Aventura", ver: "2.0.0", dev: "Toby Fox", size: "140 Mb", img: "https://play-lh.googleusercontent.com/IMnPJ7do4K6XzXhUNkRStzrpQ7wzR6p6spFJ74VwPBzkDOFH7euW7kbk51WzLLXMAq1Uld9TVk8JBG_OFmHO", lnk: "https://www.mediafire.com/file/o20abvqko1vxvha/UNDERTALE_2.0.0.apk/file", desc: "Videojuego de rol en 2D creado por Toby Fox.",
+images: [
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWl5LrUzzCgPs0JZ5rrbPISuXGg1yy15V4Du0QsIUQbQ&s=10",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQQ2GqB2YC0j4N50K3-8HE0bX8OyI4WlLvvDX8gY5e9Q&s=10",
+"https://cdn.lesnumeriques.com/optim/news/58/58651/1_undertale.png",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROj4BuC8Pfvi25LsLHfO6_ZPx7l2TVR11k8YTsWuPrbvG5xymZSEw-k6A&s=10"
+]
+},
+{
+id: 7, name: "Spotify", groupName: "Spotify", cat: "apps", genre: "Música y Audio", ver: "8.9.0", dev: "Spotify AB", size: "80 Mb", img: "https://cdn-icons-png.flaticon.com/512/2111/2111624.png", lnk: "https://www.mediafire.com/file/6gfdo6xqct6sqjd/spotify%20v9.1.12.226%20-%20espacioapk.com.apk/file", desc: "Aplicación oficial de música y podcasts.",
+images: [
+"https://play-lh.googleusercontent.com/t1VISqg8jdKJgH6Uv5g05VdAL7unb_iCWJK9-j73c98K1thChz3h4Gl4aGRT9dvqXZN0rjKmAdj7DFh0XtGkn9Q=w526-h296-rw",
+"https://cdn-3.expansion.mx/a5/08/fe9461f146339c8cdbb2031e0445/enabling-mixing-scaled.jpg",
+"https://i.computer-bild.de/imgs/4/2/4/9/6/4/7/Screenshot-aus-Spotify-3567-1600x900-5900e66f61d4e8fa.jpg",
+"https://elheraldoslp.com.mx/new/wp-content/uploads/2026/08/Spotify.jpeg",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtswqJQyg41Jig30lma0g6rOHHlNCFvmy8_nHM-5CsG-N6uHxUOy8yREI&s=10"
+]
+},
+{
+id: 8, name: "Geometry Dash", groupName: "Geometry Dash", cat: "juegos", genre: "Plataformas", ver: "2.2081", dev: "RobTop", size: "90 Mb", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk7nT5URce49XTMiccOVJHbm2xVWPqBwava6_Wf-cB8A&s=10", lnk: "https://www.mediafire.com/file/bsmc6yzjjha3ges/Geometry+Dash+v2.2081+-+GayaAPK.apk/file", desc: "Videojuego de plataformas y ritmo.",
+images: [
+"https://imgs.crazygames.com/games/geometry-dash-online/cover_16x9-1732744370399.png?metadata=none&quality=60&height=5723",
+"https://imgs.crazygames.com/games/geometry-dash-online/cover_16x9-1732744370399.png?metadata=none&quality=100&width=1200&height=630&fit=crop",
+"https://karirku.itpln.ac.id/wp-content/uploads/wp-job-board-pro-uploads/_employer_featured_image/2025/10/dashmetry.png"
+]
+},
 { 
   id: 10, 
   name: "Fortnite", 
@@ -315,7 +459,7 @@ id: 13, name: "Warplanes WW2 Dogfight", groupName: "Warplanes WW2 Dogfight", cat
   desc: "Videojuego de acción y supervivencia.",
   images: [
     "https://cdn2.unrealengine.com/fortnite-reload-nintendo-switch-2-1920x1080-a48fc7ec280e.jpg",
-    "https://img.edc-cdn.net/imgproxy/qwoEWEG03TNxkPfEOUzlM-74VelZ5NWs5dE_FfoMWhA/filename:thumbnail.jpg/resizing_type:fill/width:1920/height:1080/aHR0cHM6Ly9kMWl2N2RiNDR5aGd4bi5jbG91ZGZyb250Lm5ldC92aWRlby90aHVtYm5haWxzLzFlMjY4OGQyLTAzOGItNDRmNi1iNGNjLWQzZDM3ZmUzZjUzNy90aHVtYm5haWwuanBn",
+    "https://img.edc-cdn.net/imgproxy/qwoEWEG03TNxkPfEOUzlM-74VelZ5NWs5dE_FfoMWhA/filename:thumbnail.jpg/resizing_type:fill/width:1920/height:1080/aHR0cHM6Ly9kMWl2N2RiNDR5aGd4bi5jbG91ZGZyb250Lm5ldC92aWRlby90aHVtYm5haWxzLzFlMjY4OGQyL0MyMGI0NmZkLWJmNDMtNGNjLWQzZDM3ZmUzZjUzNy90aHVtYm5haWwuanBn",
     "https://www.gamereactor.es/media/grtv/82/498233_w926.jpg",
     "https://areajugones.sport.es/wp-content/uploads/2019/01/Fortnite-4-4.jpg.webp",
     "https://live.staticflickr.com/65535/52536122014_167f4fbdf5_h.jpg"
@@ -455,7 +599,6 @@ document.getElementById('dGenre').innerText = variant.genre;
 document.getElementById('dVerTable').innerText = variant.ver;
 document.getElementById('dSize').innerText = variant.size || 'No especificado';
 
-// Manejo de las capturas de pantalla
 var screenshotsSection = document.getElementById('screenshotsSection');
 var screenshotsContainer = document.getElementById('dScreenshots');
 screenshotsContainer.innerHTML = '';
@@ -473,7 +616,7 @@ screenshotsContainer.appendChild(imgTag);
 screenshotsSection.style.display = 'none';
 }
 
-var btnArea = document.getElementById('downloadButtonsArea');
+var btnArea = document.getElementById('downloadButtonsAction') || document.getElementById('downloadButtonsArea');
 btnArea.innerHTML = '';
 
 if (variant.lnk2) {
