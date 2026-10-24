@@ -190,10 +190,23 @@ box-shadow: 0 4px 15px rgba(0, 112, 186, 0.4);
 <button class="nav-btn" onclick="filterCat('dlc', event)"><span>📦</span> DLC</button>
 <button class="nav-btn" onclick="filterCat('exe', event)"><span>💻</span> EXE</button>
 <button class="nav-btn" onclick="filterCat('iso', event)"><span>📀</span> ISO</button>
+<button class="nav-btn" onclick="filterCat('ports', event)"><span>🚀</span> Ports</button>
 </nav>
 
 <script>
 var appList = [
+{
+id: 33, name: "Halo CE", groupName: "Halo CE", cat: "ports", genre: "Shooter / Port Android", ver: "3.1", dev: "FulGerNet", size: "APK: 12.8 Mb / ISO: 1.68 GB",
+img: "https://apkgstore.co/wp-content/uploads/2026/10/Halo-logo-150x150.png",
+lnk: "https://github.com/FulGerNet/halo-ce-android/releases/download/3.1/halo-ce-android-3.1-release.apk",
+lnk2: "https://www.mediafire.com/file/v0amrvdj7aw20fn/maps_es.zip/file?action=check",
+desc: "Halo: Combat Evolved adaptado como port nativo para dispositivos Android, permitiendo disfrutar de la legendaria campaña y acción en primera persona en tu teléfono.",
+images: [
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxH9-Bue3yJbDei9g-QIW7_epvzr5YTtmsvJtvf2buy6K--of10F0XOJ0&s=10",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF1zIddf5n4YFTKDYGk8_ltbMDGbJ4mhx6oS5Sg8zdybzMwI8sef4XIO_G&s=10",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdK6oOnsKzCnhdvoc_9BboqbkPmZCzwaNtUEruIqMAzr-qGNIfP6WGp8-W&s=10"
+]
+},
 {
 id: 28, name: "Konoha milks", groupName: "Konoha milks", cat: "juegos", genre: "Novela Visual / Adultos H", ver: "Adultos H", dev: "Indie", size: "1.28 GB",
 img: "https://techloky.com/public/uploads/images/hokage-adopted-son-4.jpg",
@@ -523,7 +536,7 @@ document.getElementById('catTitle').innerText = "Catálogo Completo";
 currentActiveList = appList;
 renderGrid(appList);
 } else {
-var titles = { juegos: "Juegos", apps: "Aplicaciones", emuladores: "Emuladores", roms: "ROMs", dlc: "DLC", exe: "EXE", iso: "ISO" };
+var titles = { juegos: "Juegos", apps: "Aplicaciones", emuladores: "Emuladores", roms: "ROMs", dlc: "DLC", exe: "EXE", iso: "ISO", ports: "Ports" };
 document.getElementById('catTitle').innerText = titles[cat] || "Categoría";
 currentActiveList = appList.filter(function(x){ return x.cat === cat; });
 renderGrid(currentActiveList);
@@ -624,14 +637,14 @@ var btn1 = document.createElement('a');
 btn1.href = variant.lnk;
 btn1.target = '_blank';
 btn1.className = 'dl-btn btn-green';
-btn1.innerText = '📥 Opción de Descarga 1';
+btn1.innerText = '📥 Descargar APK (12.8 Mb)';
 btnArea.appendChild(btn1);
 
 var btn2 = document.createElement('a');
 btn2.href = variant.lnk2;
 btn2.target = '_blank';
 btn2.className = 'dl-btn btn-blue';
-btn2.innerText = '📥 Opción de Descarga 2';
+btn2.innerText = '📀 Descargar Archivo / Mapas ISO (1.68 GB)';
 btnArea.appendChild(btn2);
 } else {
 var btnSingle = document.createElement('a');
